@@ -71,6 +71,8 @@ public class CameraPointer : MonoBehaviour
             reticle.color = nonInteractableColor;
             //reticle.rectTransform.sizeDelta = Vector2.Lerp(reticle.rectTransform.sizeDelta, normalRect, Time.deltaTime * 6);
             // No GameObject detected in front of the camera.
+
+            //CurvedUI.CurvedUIEventSystem.instance.currentSelectedGameObject.GetComponent<Button>().OnPointerExit.
             _gazedAtObject?.SendMessage("OnPointerExit");
             _gazedAtObject = null;
         }
