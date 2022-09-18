@@ -15,10 +15,10 @@ public class BundleWebLoader : MonoBehaviour
     {
         bundleUrlLocal = Application.streamingAssetsPath + "/"  + assetName;
 
-        using (WWW web = new WWW(bundleUrlLocal))
+        using (UnityWebRequest web = UnityWebRequestAssetBundle.GetAssetBundle(bundleUrlLocal))
         {
-            yield return web;
-            AssetBundle remoteAssetBundle = web.assetBundle;
+            yield return web.SendWebRequest();
+            AssetBundle remoteAssetBundle = DownloadHandlerAssetBundle.GetContent(web);
             if (remoteAssetBundle == null)
             {
                 Debug.LogError("Failed to download AssetBundle!");
