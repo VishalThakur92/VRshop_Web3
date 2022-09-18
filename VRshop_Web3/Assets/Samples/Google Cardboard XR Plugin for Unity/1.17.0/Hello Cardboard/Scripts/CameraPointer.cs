@@ -59,6 +59,11 @@ public class CameraPointer : MonoBehaviour
                 _gazedAtObject = hit.transform.gameObject;
                 _gazedAtObject.SendMessage("OnPointerEnter");
 
+                if (Input.GetMouseButtonUp(0)) {
+                    CurvedUI.CurvedUIEventSystem.instance.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
+                }
+                //CurvedUIInputModule.CustomControllerButtonState = 
+
             }
         }
         else
@@ -71,9 +76,10 @@ public class CameraPointer : MonoBehaviour
         }
 
         // Checks for screen touches.
-        if (Google.XR.Cardboard.Api.IsTriggerPressed)
+        if (Google.XR.Cardboard.Api.IsTriggerPressed || Input.GetMouseButton(0))
         {
-            _gazedAtObject?.SendMessage("OnPointerClick");
+            CurvedUI.CurvedUIEventSystem.instance.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
+            //_gazedAtObject?.SendMessage("OnPointerClick");
         }
     }
 }

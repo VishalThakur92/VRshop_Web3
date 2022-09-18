@@ -30,7 +30,7 @@ namespace CurvedUI
         void Update()
         {
 
-            pressed = Input.GetKey(KeyCode.Space) || Input.GetButton("Fire1");
+            pressed = Input.GetButton("Fire1") || Input.GetMouseButton(0);
 
             ChangeVal();       
         }

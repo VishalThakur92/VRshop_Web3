@@ -461,6 +461,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Reticle
       objectReference: {fileID: 0}
+    - target: {fileID: 308332390142289532, guid: 902d2cd7a917d41489b93e719dfc63c4, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 308332390142289532, guid: 902d2cd7a917d41489b93e719dfc63c4, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 308332390142289532, guid: 902d2cd7a917d41489b93e719dfc63c4, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 902d2cd7a917d41489b93e719dfc63c4, type: 3}
 --- !u!1 &705963491
@@ -1149,6 +1161,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8730451647831458389, guid: 92f892e40ec854948b22f4a9b5eeb8f2, type: 3}
+      propertyPath: controlMethod
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8730451647831458389, guid: 92f892e40ec854948b22f4a9b5eeb8f2, type: 3}
+      propertyPath: mainEventCamera
+      value: 
+      objectReference: {fileID: 959308592}
+    - target: {fileID: 8730451647831458389, guid: 92f892e40ec854948b22f4a9b5eeb8f2, type: 3}
+      propertyPath: gazeUseTimedClick
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8730451647831458389, guid: 92f892e40ec854948b22f4a9b5eeb8f2, type: 3}
+      propertyPath: pointerTransformOverride
+      value: 
+      objectReference: {fileID: 1267801691}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92f892e40ec854948b22f4a9b5eeb8f2, type: 3}
 --- !u!1001 &1799306720
