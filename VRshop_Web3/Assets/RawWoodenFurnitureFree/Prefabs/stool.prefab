@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 23462831285101206}
   - component: {fileID: -89823238919534740}
   m_Layer: 3
-  m_Name: stool
+  m_Name: Stool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
