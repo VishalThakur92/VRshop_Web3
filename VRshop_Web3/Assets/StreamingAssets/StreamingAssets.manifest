@@ -1,0 +1,19 @@
+ManifestFileVersion: 0
+CRC: 296713682
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: bed
+      Dependencies: {}
+    Info_1:
+      Name: cabinet.furniture
+      Dependencies: {}
+    Info_2:
+      Name: stool
+      Dependencies: {}
+    Info_3:
+      Name: table
+      Dependencies: {}
+    Info_4:
+      Name: chair
+      Dependencies: {}

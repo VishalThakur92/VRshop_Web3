@@ -1,0 +1,23 @@
+ManifestFileVersion: 0
+CRC: 2771525282
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: d0afdbf66f8bb34295c2a7c2fd0d7d93
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 1f3357f7cf7ba34ca2fccf1be09cead6
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/BundledAssets/bed.prefab
+Dependencies: []
