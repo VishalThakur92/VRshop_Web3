@@ -32,7 +32,7 @@ public class CameraPointer : MonoBehaviour
 
 
     [SerializeField]
-    Vector2 normalRect, interactableRect;
+    Color nonInteractableColor, interactableColor;
 
     int layer_mask;
 
@@ -50,10 +50,10 @@ public class CameraPointer : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, _maxDistance, layer_mask))
         {
-            //reticle.rectTransform.sizeDelta = Vector2.Lerp(reticle.rectTransform.sizeDelta, interactableRect, Time.deltaTime * 6);
             // GameObject detected in front of the camera.
             if (_gazedAtObject != hit.transform.gameObject)
             {
+                reticle.color = interactableColor;
                 // New GameObject.
                 _gazedAtObject?.SendMessage("OnPointerExit");
                 _gazedAtObject = hit.transform.gameObject;
@@ -63,6 +63,7 @@ public class CameraPointer : MonoBehaviour
         }
         else
         {
+            reticle.color = nonInteractableColor;
             //reticle.rectTransform.sizeDelta = Vector2.Lerp(reticle.rectTransform.sizeDelta, normalRect, Time.deltaTime * 6);
             // No GameObject detected in front of the camera.
             _gazedAtObject?.SendMessage("OnPointerExit");
