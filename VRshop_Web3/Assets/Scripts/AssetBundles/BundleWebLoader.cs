@@ -9,7 +9,7 @@ public class BundleWebLoader : MonoBehaviour
     public string bundleUrlLocal;
     //public string bundleUrlCloud = Application.streamingAssetsPath + "";
     public string assetName = "BundledObject";
-
+    GameObject spawnedABObj;
     // Start is called before the first frame update
     IEnumerator Start()
     {
@@ -24,7 +24,8 @@ public class BundleWebLoader : MonoBehaviour
                 Debug.LogError("Failed to download AssetBundle!");
                 yield break;
             }
-            Instantiate(remoteAssetBundle.LoadAsset(assetName));
+            spawnedABObj = Instantiate(remoteAssetBundle.LoadAsset(assetName))as GameObject;
+            spawnedABObj.transform.position = new Vector3(-0.186f, 0, 3.04f);
             remoteAssetBundle.Unload(false);
         }
     }

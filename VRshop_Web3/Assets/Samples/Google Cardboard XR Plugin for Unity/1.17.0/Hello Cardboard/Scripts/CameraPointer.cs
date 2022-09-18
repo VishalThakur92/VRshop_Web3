@@ -18,6 +18,7 @@
 
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Sends messages to gazed GameObject.
@@ -26,7 +27,21 @@ public class CameraPointer : MonoBehaviour
 {
     private const float _maxDistance = 10;
     private GameObject _gazedAtObject = null;
+    [SerializeField]
+    Image reticle;
 
+    [SerializeField]
+    Color normalColor, interactableColor;
+
+    [SerializeField]
+    Vector2 normalRect, interactableRect;
+
+    int layer_mask;
+
+    private void Start()
+    {
+        layer_mask = LayerMask.GetMask("interactable");
+    }
     /// <summary>
     /// Update is called once per frame.
     /// </summary>
@@ -35,19 +50,24 @@ public class CameraPointer : MonoBehaviour
         // Casts ray towards camera's forward direction, to detect if a GameObject is being gazed
         // at.
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, _maxDistance))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, _maxDistance, layer_mask))
         {
+            reticle.rectTransform.sizeDelta = Vector2.Lerp(reticle.rectTransform.sizeDelta, interactableRect, Time.deltaTime * 6);
             // GameObject detected in front of the camera.
             if (_gazedAtObject != hit.transform.gameObject)
             {
+                reticle.color = interactableColor;
                 // New GameObject.
                 _gazedAtObject?.SendMessage("OnPointerExit");
                 _gazedAtObject = hit.transform.gameObject;
                 _gazedAtObject.SendMessage("OnPointerEnter");
+
             }
         }
         else
         {
+            reticle.rectTransform.sizeDelta = Vector2.Lerp(reticle.rectTransform.sizeDelta, normalRect, Time.deltaTime * 6);
+            reticle.color = normalColor;
             // No GameObject detected in front of the camera.
             _gazedAtObject?.SendMessage("OnPointerExit");
             _gazedAtObject = null;
