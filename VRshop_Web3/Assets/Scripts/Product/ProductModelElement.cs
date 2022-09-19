@@ -25,14 +25,22 @@ public class ProductModelElement : MonoBehaviour, Interactable
     }
 
 
+
     void ToggleUICanvas(bool flag) {
         UICanvas.interactable = flag;
         UICanvas.alpha = flag ? 1 : 0;
     }
 
-    public void OnMoveSelected() {
+    public void OnMoveStart()
+    {
         Debug.LogError("Enter move product mode");
         GetComponent<BoxCollider>().enabled = false;
         CameraPointer.Instance.StartRepositioningBehaviour(this.gameObject);
+    }
+
+    public void OnMoveEnd()    {
+        Debug.LogError("Exit move product mode");
+        GetComponent<BoxCollider>().enabled = true;
+        transform.parent = null;
     }
 }

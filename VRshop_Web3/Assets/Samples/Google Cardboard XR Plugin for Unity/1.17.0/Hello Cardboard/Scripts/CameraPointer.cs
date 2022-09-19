@@ -36,6 +36,8 @@ public class CameraPointer : MonoBehaviour
     Color nonInteractableColor, interactableColor;
 
     public Transform repositionHelperContainer;
+    [SerializeField]
+    GameObject repositionObj;
 
     public static CameraPointer Instance { get; private set; }
     int layer_mask;
@@ -64,10 +66,13 @@ public class CameraPointer : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, _maxDistance, layer_mask))
         {
-            repositionHelperContainer.position = Vector3.Lerp(repositionHelperContainer.position ,  hit.point, Time.deltaTime * 10);
+            if (hit.transform.gameObject.layer == 3 && repositionObj != null)
+                repositionHelperContainer.position = Vector3.Lerp(repositionHelperContainer.position, hit.point, Time.deltaTime * 10);
+
             // GameObject detected in front of the camera.
             if (_gazedAtObject != hit.transform.gameObject)
             {
+
                 _gazedAtObject?.GetComponent<Interactable>()?.OnPointerExit();
                 reticle.color = interactableColor;
                 // New GameObject.
@@ -101,6 +106,11 @@ public class CameraPointer : MonoBehaviour
         // Checks for screen touches.
         if (Google.XR.Cardboard.Api.IsTriggerPressed || Input.GetMouseButtonUp(0))
         {
+            if (repositionObj) {
+                repositionObj.GetComponent<ProductModelElement>().OnMoveEnd();
+            }
+                
+
             CurvedUI.CurvedUIEventSystem.instance.currentSelectedGameObject?.GetComponent<Button>()?.onClick.Invoke();
             //EventSystem.current.currentSelectedGameObject?.GetComponent<Button>()?.onClick.Invoke();
             //Debug.LogError(EventSystem.current.currentSelectedGameObject?.name);
@@ -108,10 +118,11 @@ public class CameraPointer : MonoBehaviour
         }
     }
 
-    public void StartRepositioningBehaviour(GameObject objToReposition)
+    public void StartRepositioningBehaviour(GameObject obj)
     {
-        objToReposition.transform.SetParent(repositionHelperContainer, true);
-        objToReposition.transform.localPosition = Vector3.zero;
+        repositionObj = obj;
+        obj.transform.SetParent(repositionHelperContainer, true);
+        obj.transform.localPosition = Vector3.zero;
     }
 
 }
