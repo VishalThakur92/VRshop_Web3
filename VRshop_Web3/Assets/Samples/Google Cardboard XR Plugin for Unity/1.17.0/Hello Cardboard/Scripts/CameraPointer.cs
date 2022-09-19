@@ -38,7 +38,7 @@ public class CameraPointer : MonoBehaviour
 
     private void Start()
     {
-        layer_mask = LayerMask.GetMask("interactable", "UI");
+        layer_mask = LayerMask.GetMask("Interactable", "UI");
     }
     /// <summary>
     /// Update is called once per frame.
@@ -55,10 +55,10 @@ public class CameraPointer : MonoBehaviour
             {
                 reticle.color = interactableColor;
                 // New GameObject.
-                _gazedAtObject?.SendMessage("OnPointerExit");
+                //_gazedAtObject?.SendMessage("OnPointerExit");
                 _gazedAtObject = hit.transform.gameObject;
-                _gazedAtObject.SendMessage("OnPointerEnter");
-
+                //_gazedAtObject.SendMessage("OnPointerEnter");
+                _gazedAtObject.GetComponent<Interactable>().OnPointerEnter();
                 //if (Input.GetMouseButtonUp(0)) {
                 //    Debug.LogError("On Tap" + Time.time);
                 //    CurvedUI.CurvedUIEventSystem.instance.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
@@ -73,8 +73,9 @@ public class CameraPointer : MonoBehaviour
             //reticle.rectTransform.sizeDelta = Vector2.Lerp(reticle.rectTransform.sizeDelta, normalRect, Time.deltaTime * 6);
             // No GameObject detected in front of the camera.
 
+            _gazedAtObject.GetComponent<Interactable>().OnPointerExit();
             //CurvedUI.CurvedUIEventSystem.instance.currentSelectedGameObject.GetComponent<Button>().OnPointerExit.
-            _gazedAtObject?.SendMessage("OnPointerExit");
+            //_gazedAtObject?.SendMessage("OnPointerExit");
             _gazedAtObject = null;
         }
 
