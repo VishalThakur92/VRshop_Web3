@@ -9,32 +9,54 @@ public class ProductModelElement : MonoBehaviour, Interactable
     CanvasGroup UICanvas;
 
     [SerializeField]
+    Text productNameText;
+
+    [SerializeField]
     bool isPlaced = true;
+
+    [SerializeField]
+    GameObject highlighter;
 
 
     void Start() {
         ToggleUICanvas(false);
+        productNameText.text = value.ToString();
     }
 
     public void OnPointerEnter() {
-        if(isPlaced)
-            ToggleUICanvas(true);
+        highlighter.SetActive(true);
+        //Show Highlighter
+        //if(isPlaced)
+        //    ToggleUICanvas(true);
     }
-    public void OnPointerExit() {
-        ToggleUICanvas(false);
+    public void OnPointerExit()
+    {
+        highlighter.SetActive(false);
+        //Hide Highlighter
+        //ToggleUICanvas(false);
     }
 
-
+    public void OnPointerClick() {
+        GetComponent<BoxCollider>().enabled = false;
+        //Show Interactable Canvas
+        ToggleUICanvas(true);
+    }
 
     void ToggleUICanvas(bool flag) {
         UICanvas.interactable = flag;
         UICanvas.alpha = flag ? 1 : 0;
     }
 
+
+    int value = 0;
     public void OnMoveStart()
     {
         Debug.LogError("Enter move product mode");
-        GetComponent<BoxCollider>().enabled = false;
+        //Hide canvas
+        ToggleUICanvas(false);
+        //value++;
+        //productNameText.text = value.ToString();
+        //return;
         CameraPointer.Instance.StartRepositioningBehaviour(this.gameObject);
     }
 
@@ -43,4 +65,6 @@ public class ProductModelElement : MonoBehaviour, Interactable
         GetComponent<BoxCollider>().enabled = true;
         transform.parent = null;
     }
+
+
 }

@@ -39,12 +39,18 @@ public class CameraPointer : MonoBehaviour
     [SerializeField]
     GameObject repositionObj;
 
+    Selectable currentSelectable;
     public static CameraPointer Instance { get; private set; }
     int layer_mask;
 
-
     private void Awake()
     {
+#if UNITY_EDITOR
+        rot = transform.localRotation.eulerAngles;
+        rotY = rot.y;
+        rotX = rot.x;
+
+#endif
         if (Instance != null && Instance != this)
         {
             Destroy(this);
@@ -55,6 +61,34 @@ public class CameraPointer : MonoBehaviour
     private void Start()
     {
         layer_mask = LayerMask.GetMask("Interactable", "UI");
+    }
+#if UNITY_EDITOR
+    float rotY = 0;
+    float rotX = 0;
+    float mouseY = 0;
+    float mouseX = 0;
+
+    Vector3 rot;
+    void FixedUpdate()
+    {
+        mouseX = Input.GetAxis("Mouse X");
+        mouseY = -Input.GetAxis("Mouse Y");
+
+        rotY += mouseX * 500  * Time.deltaTime;
+        rotX += mouseY * 500 * Time.deltaTime;
+
+        rotX = Mathf.Clamp(rotX, -80, 80);
+
+        Quaternion localRotation = Quaternion.Euler(rotX, rotY, 0.0f);
+        transform.rotation = Quaternion.Lerp(transform.rotation , localRotation , Time.deltaTime * 100);
+    }
+#endif
+
+
+    private void OnGUI()
+    {
+        GUILayout.TextField($"Current Selectable = {currentSelectable}");
+        GUILayout.TextField($"Current Raycast hit obj = {_gazedAtObject}");
     }
     /// <summary>
     /// Update is called once per frame.
@@ -68,16 +102,20 @@ public class CameraPointer : MonoBehaviour
         {
             if (hit.transform.gameObject.layer == 3 && repositionObj != null)
                 repositionHelperContainer.position = Vector3.Lerp(repositionHelperContainer.position, hit.point, Time.deltaTime * 10);
-
+            //hit.
             // GameObject detected in front of the camera.
             if (_gazedAtObject != hit.transform.gameObject)
             {
-
                 _gazedAtObject?.GetComponent<Interactable>()?.OnPointerExit();
                 reticle.color = interactableColor;
                 // New GameObject.
                 //_gazedAtObject?.SendMessage("OnPointerExit");
                 _gazedAtObject = hit.transform.gameObject;
+
+                if (_gazedAtObject?.GetComponent<Selectable>())
+                {
+                    currentSelectable = _gazedAtObject.GetComponent<Selectable>();
+                }
                 //_gazedAtObject.SendMessage("OnPointerEnter");
                 _gazedAtObject.GetComponent<Interactable>()?.OnPointerEnter();
                 //if (Input.GetMouseButtonUp(0)) {
@@ -101,6 +139,7 @@ public class CameraPointer : MonoBehaviour
             //CurvedUI.CurvedUIEventSystem.instance.currentSelectedGameObject.GetComponent<Button>().OnPointerExit.
             //_gazedAtObject?.SendMessage("OnPointerExit");
             _gazedAtObject = null;
+            currentSelectable = null;
         }
 
         // Checks for screen touches.
@@ -108,13 +147,15 @@ public class CameraPointer : MonoBehaviour
         {
             if (repositionObj) {
                 repositionObj.GetComponent<ProductModelElement>().OnMoveEnd();
+                repositionObj = null;
             }
-                
+
+            _gazedAtObject?.GetComponent<Interactable>()?.OnPointerClick();
+            _gazedAtObject?.GetComponent<Button>()?.onClick.Invoke();
 
             CurvedUI.CurvedUIEventSystem.instance.currentSelectedGameObject?.GetComponent<Button>()?.onClick.Invoke();
-            //EventSystem.current.currentSelectedGameObject?.GetComponent<Button>()?.onClick.Invoke();
-            //Debug.LogError(EventSystem.current.currentSelectedGameObject?.name);
-            //_gazedAtObject?.SendMessage("OnPointerClick");
+
+            Debug.LogError(EventSystem.current.gameObject?.name);
         }
     }
 
