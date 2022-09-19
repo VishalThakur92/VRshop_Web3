@@ -1121,6 +1121,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1091594827, guid: a4e0ff4643b80d547ba35af8e6089350, type: 3}
   m_PrefabInstance: {fileID: 494294069112622023}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1091594832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091594827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
 --- !u!65 &1091594833
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2793,11 +2806,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 13109315, guid: a4e0ff4643b80d547ba35af8e6089350, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 869163395, guid: a4e0ff4643b80d547ba35af8e6089350, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 869163395, guid: a4e0ff4643b80d547ba35af8e6089350, type: 3}
       propertyPath: m_IsActive
@@ -2809,7 +2822,7 @@ PrefabInstance:
       objectReference: {fileID: 959308592}
     - target: {fileID: 1091594827, guid: a4e0ff4643b80d547ba35af8e6089350, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1091594829, guid: a4e0ff4643b80d547ba35af8e6089350, type: 3}
       propertyPath: m_Transition
@@ -2896,6 +2909,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 7e61e129382abbd4a9cac0d7a454017f, type: 2}
     - target: {fileID: 494294069112622025, guid: a4e0ff4643b80d547ba35af8e6089350, type: 3}
+      propertyPath: UICanvas
+      value: 
+      objectReference: {fileID: 869163395}
+    - target: {fileID: 494294069112622025, guid: a4e0ff4643b80d547ba35af8e6089350, type: 3}
       propertyPath: highlighter
       value: 
       objectReference: {fileID: 712481124}
@@ -2905,13 +2922,14 @@ PrefabInstance:
       objectReference: {fileID: 13109317}
     - target: {fileID: 1959299406983530139, guid: a4e0ff4643b80d547ba35af8e6089350, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2817387236632657553, guid: a4e0ff4643b80d547ba35af8e6089350, type: 3}
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1959299406983530140, guid: a4e0ff4643b80d547ba35af8e6089350, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a4e0ff4643b80d547ba35af8e6089350, type: 3}
 --- !u!114 &494294069112622025 stripped
 MonoBehaviour:

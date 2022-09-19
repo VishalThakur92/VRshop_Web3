@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class ProductModelElement : MonoBehaviour, Interactable
 {
     [SerializeField]
-    CanvasGroup UICanvas;
+    GameObject UICanvas;
 
-    [SerializeField]
-    Text productNameText;
+    //[SerializeField]
+    //Text productNameText;
 
     [SerializeField]
     bool isPlaced = true;
@@ -20,7 +20,7 @@ public class ProductModelElement : MonoBehaviour, Interactable
 
     void Start() {
         ToggleUICanvas(false);
-        productNameText.text = value.ToString();
+        //productNameText.text = value.ToString();
     }
 
     public void OnPointerEnter() {
@@ -43,12 +43,11 @@ public class ProductModelElement : MonoBehaviour, Interactable
     }
 
     void ToggleUICanvas(bool flag) {
-        UICanvas.interactable = flag;
-        UICanvas.alpha = flag ? 1 : 0;
+        UICanvas.SetActive(flag);
     }
 
 
-    int value = 0;
+    //int value = 0;
     public void OnMoveStart()
     {
         Debug.LogError("Enter move product mode");
@@ -56,7 +55,6 @@ public class ProductModelElement : MonoBehaviour, Interactable
         ToggleUICanvas(false);
         //value++;
         //productNameText.text = value.ToString();
-        //return;
         CameraPointer.Instance.StartRepositioningBehaviour(this.gameObject);
     }
 

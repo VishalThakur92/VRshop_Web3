@@ -143,19 +143,29 @@ public class CameraPointer : MonoBehaviour
         }
 
         // Checks for screen touches.
+#if UNITY_EDITOR
+
         if (Google.XR.Cardboard.Api.IsTriggerPressed || Input.GetMouseButtonUp(0))
+#else
+
+        if (Google.XR.Cardboard.Api.IsTriggerPressed)
+#endif
         {
-            if (repositionObj) {
+            if (repositionObj)
+            {
                 repositionObj.GetComponent<ProductModelElement>().OnMoveEnd();
                 repositionObj = null;
             }
+            else
+            {
 
-            _gazedAtObject?.GetComponent<Interactable>()?.OnPointerClick();
-            _gazedAtObject?.GetComponent<Button>()?.onClick.Invoke();
+                _gazedAtObject?.GetComponent<Interactable>()?.OnPointerClick();
+                _gazedAtObject?.GetComponent<Button>()?.onClick.Invoke();
 
-            CurvedUI.CurvedUIEventSystem.instance.currentSelectedGameObject?.GetComponent<Button>()?.onClick.Invoke();
+                CurvedUI.CurvedUIEventSystem.instance.currentSelectedGameObject?.GetComponent<Button>()?.onClick.Invoke();
 
-            Debug.LogError(EventSystem.current.gameObject?.name);
+                Debug.LogError(EventSystem.current.gameObject?.name);
+            }
         }
     }
 

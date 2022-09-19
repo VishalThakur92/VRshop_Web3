@@ -5,6 +5,7 @@ using UnityEngine;
 public interface Interactable
 {
     public void OnPointerEnter();
-    public void OnPointerClick();
     public void OnPointerExit();
+    public void OnPointerClick();
+
 }
