@@ -50,7 +50,7 @@ public class ProductModelElement : MonoBehaviour, Interactable
     //int value = 0;
     public void OnMoveStart()
     {
-        Debug.LogError("Enter move product mode");
+        //Debug.LogError("Enter move product mode");
         //Hide canvas
         ToggleUICanvas(false);
         //value++;
@@ -59,7 +59,7 @@ public class ProductModelElement : MonoBehaviour, Interactable
     }
 
     public void OnMoveEnd()    {
-        Debug.LogError("Exit move product mode");
+        //Debug.LogError("Exit move product mode");
         GetComponent<BoxCollider>().enabled = true;
         transform.parent = null;
     }

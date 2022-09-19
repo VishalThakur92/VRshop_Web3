@@ -1,0 +1,10 @@
+ManifestFileVersion: 0
+CRC: 3501086124
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: table
+      Dependencies: {}
+    Info_1:
+      Name: chair
+      Dependencies: {}

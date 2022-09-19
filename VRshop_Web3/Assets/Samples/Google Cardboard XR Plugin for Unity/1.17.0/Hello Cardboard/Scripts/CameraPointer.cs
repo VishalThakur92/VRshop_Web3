@@ -145,7 +145,7 @@ public class CameraPointer : MonoBehaviour
         // Checks for screen touches.
 #if UNITY_EDITOR
 
-        if (Google.XR.Cardboard.Api.IsTriggerPressed || Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0))
 #else
 
         if (Google.XR.Cardboard.Api.IsTriggerPressed)
@@ -164,7 +164,7 @@ public class CameraPointer : MonoBehaviour
 
                 CurvedUI.CurvedUIEventSystem.instance.currentSelectedGameObject?.GetComponent<Button>()?.onClick.Invoke();
 
-                Debug.LogError(EventSystem.current.gameObject?.name);
+                //Debug.LogError(EventSystem.current.gameObject?.name);
             }
         }
     }

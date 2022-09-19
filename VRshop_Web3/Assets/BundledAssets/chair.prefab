@@ -545,7 +545,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UICanvas: {fileID: 869163395}
-  productNameText: {fileID: 13109317}
   isPlaced: 1
   highlighter: {fileID: 712481124}
 --- !u!1 &1959299406983530139
