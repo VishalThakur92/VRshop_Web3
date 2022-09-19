@@ -32,5 +32,7 @@ public class ProductModelElement : MonoBehaviour, Interactable
 
     public void OnMoveSelected() {
         Debug.LogError("Enter move product mode");
+        GetComponent<BoxCollider>().enabled = false;
+        CameraPointer.Instance.StartRepositioningBehaviour(this.gameObject);
     }
 }

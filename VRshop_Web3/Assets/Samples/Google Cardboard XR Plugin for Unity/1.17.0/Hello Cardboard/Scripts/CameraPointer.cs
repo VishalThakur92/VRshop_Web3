@@ -18,6 +18,7 @@
 
 using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 /// <summary>
@@ -34,8 +35,21 @@ public class CameraPointer : MonoBehaviour
     [SerializeField]
     Color nonInteractableColor, interactableColor;
 
+    public Transform repositionHelperContainer;
+
+    public static CameraPointer Instance { get; private set; }
     int layer_mask;
 
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+            return;
+        }
+        Instance = this;
+    }
     private void Start()
     {
         layer_mask = LayerMask.GetMask("Interactable", "UI");
@@ -50,15 +64,17 @@ public class CameraPointer : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, _maxDistance, layer_mask))
         {
+            repositionHelperContainer.position = Vector3.Lerp(repositionHelperContainer.position ,  hit.point, Time.deltaTime * 10);
             // GameObject detected in front of the camera.
             if (_gazedAtObject != hit.transform.gameObject)
             {
+                _gazedAtObject?.GetComponent<Interactable>()?.OnPointerExit();
                 reticle.color = interactableColor;
                 // New GameObject.
                 //_gazedAtObject?.SendMessage("OnPointerExit");
                 _gazedAtObject = hit.transform.gameObject;
                 //_gazedAtObject.SendMessage("OnPointerEnter");
-                _gazedAtObject.GetComponent<Interactable>().OnPointerEnter();
+                _gazedAtObject.GetComponent<Interactable>()?.OnPointerEnter();
                 //if (Input.GetMouseButtonUp(0)) {
                 //    Debug.LogError("On Tap" + Time.time);
                 //    CurvedUI.CurvedUIEventSystem.instance.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
@@ -69,11 +85,14 @@ public class CameraPointer : MonoBehaviour
         }
         else
         {
+            //Vector3 newPos = Camera.main.transform.position + Camera.main.transform.forward;
+            //repositionHelperContainer.position = newPos;
+            //repositionHelperContainer.position = new Vector3(repositionHelperContainer.position.x, repositionHelperContainer.position.y, repositionHelperContainer.position.z +3);
             reticle.color = nonInteractableColor;
             //reticle.rectTransform.sizeDelta = Vector2.Lerp(reticle.rectTransform.sizeDelta, normalRect, Time.deltaTime * 6);
             // No GameObject detected in front of the camera.
 
-            _gazedAtObject.GetComponent<Interactable>().OnPointerExit();
+            _gazedAtObject?.GetComponent<Interactable>()?.OnPointerExit();
             //CurvedUI.CurvedUIEventSystem.instance.currentSelectedGameObject.GetComponent<Button>().OnPointerExit.
             //_gazedAtObject?.SendMessage("OnPointerExit");
             _gazedAtObject = null;
@@ -82,8 +101,17 @@ public class CameraPointer : MonoBehaviour
         // Checks for screen touches.
         if (Google.XR.Cardboard.Api.IsTriggerPressed || Input.GetMouseButtonUp(0))
         {
-            CurvedUI.CurvedUIEventSystem.instance.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
+            CurvedUI.CurvedUIEventSystem.instance.currentSelectedGameObject?.GetComponent<Button>()?.onClick.Invoke();
+            //EventSystem.current.currentSelectedGameObject?.GetComponent<Button>()?.onClick.Invoke();
+            //Debug.LogError(EventSystem.current.currentSelectedGameObject?.name);
             //_gazedAtObject?.SendMessage("OnPointerClick");
         }
     }
+
+    public void StartRepositioningBehaviour(GameObject objToReposition)
+    {
+        objToReposition.transform.SetParent(repositionHelperContainer, true);
+        objToReposition.transform.localPosition = Vector3.zero;
+    }
+
 }
