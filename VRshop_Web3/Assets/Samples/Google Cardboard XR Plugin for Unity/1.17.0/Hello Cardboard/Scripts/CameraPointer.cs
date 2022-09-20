@@ -81,7 +81,7 @@ public class CameraPointer : MonoBehaviour
         rotX = Mathf.Clamp(rotX, -80, 80);
 
         Quaternion localRotation = Quaternion.Euler(rotX, rotY, 0.0f);
-        transform.rotation = localRotation;
+        transform.rotation = Quaternion.Slerp(transform.rotation ,  localRotation , Time.deltaTime * 20);
     }
 #endif
 
