@@ -17,6 +17,9 @@ public class ProductModelElement : MonoBehaviour, Interactable
     [SerializeField]
     GameObject highlighter;
 
+    [SerializeField]
+    GameObject meshRef;
+
 
     void Start() {
         ToggleUICanvas(false);
@@ -67,14 +70,28 @@ public class ProductModelElement : MonoBehaviour, Interactable
     }
 
 
-    public void OnRotateLeft()
+    public void RotateLeft()
     {
         //Rotate product to left by x degrees
+        StartCoroutine(Rotate(Vector3.up));
 
     }
-    public void OnRotateRight()
+    public void RotateRight()
     {
         //Rotate product to right by x degrees
+        StartCoroutine(Rotate(-Vector3.up));
+    }
+
+
+    public void IncreaseSize()
+    {
+
+        StartCoroutine(Resize(meshRef.transform.localScale.x, meshRef.transform.localScale.x +.3f ));
+    }
+    public void ReduceSize()
+    {
+
+        StartCoroutine(Resize(meshRef.transform.localScale.x, meshRef.transform.localScale.x- .3f));
     }
 
     public void OnDelete() {
@@ -83,5 +100,26 @@ public class ProductModelElement : MonoBehaviour, Interactable
         Destroy(gameObject);
     }
 
+    IEnumerator Rotate(Vector3 rotation)
+    {
+        float startTime = Time.time;
 
+        while (Time.time - startTime < .05f)
+        {
+            meshRef.transform.Rotate(rotation);
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
+    IEnumerator Resize(float curScale , float startScale)
+    {
+        float startTime = Time.time;
+
+        while (Time.time - startTime < 2f)
+        {
+            curScale = Mathf.Clamp(Mathf.MoveTowards(curScale, startScale, Time.deltaTime * 10) , 0.5f , 3);
+            meshRef.transform.localScale = new Vector3(curScale, curScale, curScale);
+            yield return new WaitForEndOfFrame();
+        }
+    }
 }
