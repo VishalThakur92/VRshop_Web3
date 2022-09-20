@@ -60,7 +60,8 @@ public class CameraPointer : MonoBehaviour
     }
     private void Start()
     {
-        layer_mask = LayerMask.GetMask("Interactable", "UI");
+        layer_mask = LayerMask.GetMask("Interactable", "UI", "Floor");
+
     }
 #if UNITY_EDITOR
     float rotY = 0;
@@ -100,14 +101,15 @@ public class CameraPointer : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, _maxDistance, layer_mask))
         {
-            if (hit.transform.gameObject.layer == 3 && repositionObj != null)
+            if ((hit.transform.gameObject.layer == 3 || hit.transform.gameObject.layer == 6) && repositionObj != null)
                 repositionHelperContainer.position = Vector3.Lerp(repositionHelperContainer.position, hit.point, Time.deltaTime * 10);
-            //hit.
-            // GameObject detected in front of the camera.
-            if (_gazedAtObject != hit.transform.gameObject)
-            {
-                _gazedAtObject?.GetComponent<Interactable>().OnPointerExit();
+
+            // A different GameObject detected in front of the camera.
+            if (_gazedAtObject != hit.transform.gameObject){
+                   
                 reticle.color = interactableColor;
+
+                _gazedAtObject?.GetComponent<Interactable>()?.OnPointerExit();
                 // New GameObject.
                 //_gazedAtObject?.SendMessage("OnPointerExit");
                 _gazedAtObject = hit.transform.gameObject;
@@ -117,7 +119,6 @@ public class CameraPointer : MonoBehaviour
                     currentSelectable = _gazedAtObject.GetComponent<Selectable>();
                 }
                 //_gazedAtObject.SendMessage("OnPointerEnter");
-                _gazedAtObject.GetComponent<Interactable>()?.OnPointerEnter();
                 //if (Input.GetMouseButtonUp(0)) {
                 //    Debug.LogError("On Tap" + Time.time);
                 //    CurvedUI.CurvedUIEventSystem.instance.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
@@ -125,9 +126,13 @@ public class CameraPointer : MonoBehaviour
                 //CurvedUIInputModule.CustomControllerButtonState = 
 
             }
+
+            hit.transform.gameObject.GetComponent<Interactable>()?.OnPointerEnter();
         }
         else
         {
+            if(repositionObj != null)
+                repositionHelperContainer.transform.position = Vector3.Lerp(repositionHelperContainer.transform.position  , Camera.main.transform.position + Camera.main.transform.forward * 3.5f , Time.deltaTime * 10);
             //Vector3 newPos = Camera.main.transform.position + Camera.main.transform.forward;
             //repositionHelperContainer.position = newPos;
             //repositionHelperContainer.position = new Vector3(repositionHelperContainer.position.x, repositionHelperContainer.position.y, repositionHelperContainer.position.z +3);
