@@ -55,18 +55,15 @@ public class ProductModelElement : MonoBehaviour, Interactable
     //int value = 0;
     public void OnMoveStart()
     {
-        //Debug.LogError("Enter move product mode");
-        //Hide canvas
         ToggleUICanvas(false);
-        //value++;
-        //productNameText.text = value.ToString();
-        CameraPointer.Instance.StartRepositioningBehaviour(this.gameObject);
+        Data.DataEvents.OnProductRepositionStart.Invoke(gameObject);
+        Data.DataEvents.OnProductRepositionEnd += OnMoveEnd;
     }
 
     public void OnMoveEnd()    {
-        //Debug.LogError("Exit move product mode");
         GetComponent<BoxCollider>().enabled = true;
         transform.parent = null;
+        Data.DataEvents.OnProductRepositionEnd -= OnMoveEnd;
     }
 
 

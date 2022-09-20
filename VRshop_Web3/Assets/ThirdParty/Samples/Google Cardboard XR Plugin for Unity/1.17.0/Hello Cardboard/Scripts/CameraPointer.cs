@@ -62,6 +62,13 @@ public class CameraPointer : MonoBehaviour
     {
         layer_mask = LayerMask.GetMask("Interactable", "UI", "Floor");
 
+        Data.DataEvents.OnProductRepositionStart += StartRepositioningBehaviour;
+
+    }
+
+    private void OnDestroy()
+    {
+        Data.DataEvents.OnProductRepositionStart -= StartRepositioningBehaviour;
     }
 #if UNITY_EDITOR
     float rotY = 0;
@@ -158,7 +165,8 @@ public class CameraPointer : MonoBehaviour
         {
             if (repositionObj)
             {
-                repositionObj.GetComponent<ProductModelElement>().OnMoveEnd();
+                Data.DataEvents.OnProductRepositionEnd.Invoke();
+                //repositionObj.GetComponent<ProductModelElement>().OnMoveEnd();
                 repositionObj = null;
             }
             else
@@ -174,7 +182,7 @@ public class CameraPointer : MonoBehaviour
         }
     }
 
-    public void StartRepositioningBehaviour(GameObject obj)
+    void StartRepositioningBehaviour(GameObject obj)
     {
         repositionObj = obj;
         obj.transform.SetParent(repositionHelperContainer, true);
