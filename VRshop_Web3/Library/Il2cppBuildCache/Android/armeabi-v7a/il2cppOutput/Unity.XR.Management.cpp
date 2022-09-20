@@ -90,8 +90,6 @@ struct XRLoaderU5BU5D_t203FCF6D4845B3782765C3430A1C404D7C80BBC8;
 struct Action_tAF41423D285AE0862865348CF6CE51CD085ABBA6;
 // System.AsyncCallback
 struct AsyncCallback_tA7921BEF974919C46FF8F9D9867C567B200BB0EA;
-// System.Attribute
-struct Attribute_t037CA9D9F3B742C063DB364D2EEBBF9FC5772C71;
 // System.DelegateData
 struct DelegateData_t17DD30660E330C49381DAA99F934BE75CB11F288;
 // System.IAsyncResult
@@ -116,8 +114,6 @@ struct SerializationInfo_t097DA64D9DB49ED7F2458E964BE8CCCF63FC67C1;
 struct String_t;
 // System.Void
 struct Void_t700C6383A2A510C2CF4DD86DABD5CA9FF70ADAC5;
-// UnityEngine.XR.Management.XRConfigurationDataAttribute
-struct XRConfigurationDataAttribute_tC94F83D607B934FF3F894802DF857C51AA165236;
 // UnityEngine.XR.Management.XRGeneralSettings
 struct XRGeneralSettings_t32A12852D8662239F55902E9FD6A299201C04042;
 // UnityEngine.XR.Management.XRLoader
@@ -674,15 +670,6 @@ struct Il2CppArrayBounds;
 // System.Array
 
 
-// System.Attribute
-struct Attribute_t037CA9D9F3B742C063DB364D2EEBBF9FC5772C71  : public RuntimeObject
-{
-public:
-
-public:
-};
-
-
 // System.String
 struct String_t  : public RuntimeObject
 {
@@ -990,36 +977,6 @@ public:
 	};
 
 public:
-};
-
-
-// UnityEngine.XR.Management.XRConfigurationDataAttribute
-struct XRConfigurationDataAttribute_tC94F83D607B934FF3F894802DF857C51AA165236  : public Attribute_t037CA9D9F3B742C063DB364D2EEBBF9FC5772C71
-{
-public:
-	// System.String UnityEngine.XR.Management.XRConfigurationDataAttribute::<displayName>k__BackingField
-	String_t* ___U3CdisplayNameU3Ek__BackingField_0;
-	// System.String UnityEngine.XR.Management.XRConfigurationDataAttribute::<buildSettingsKey>k__BackingField
-	String_t* ___U3CbuildSettingsKeyU3Ek__BackingField_1;
-
-public:
-	inline static int32_t get_offset_of_U3CdisplayNameU3Ek__BackingField_0() { return static_cast<int32_t>(offsetof(XRConfigurationDataAttribute_tC94F83D607B934FF3F894802DF857C51AA165236, ___U3CdisplayNameU3Ek__BackingField_0)); }
-	inline String_t* get_U3CdisplayNameU3Ek__BackingField_0() const { return ___U3CdisplayNameU3Ek__BackingField_0; }
-	inline String_t** get_address_of_U3CdisplayNameU3Ek__BackingField_0() { return &___U3CdisplayNameU3Ek__BackingField_0; }
-	inline void set_U3CdisplayNameU3Ek__BackingField_0(String_t* value)
-	{
-		___U3CdisplayNameU3Ek__BackingField_0 = value;
-		Il2CppCodeGenWriteBarrier((void**)(&___U3CdisplayNameU3Ek__BackingField_0), (void*)value);
-	}
-
-	inline static int32_t get_offset_of_U3CbuildSettingsKeyU3Ek__BackingField_1() { return static_cast<int32_t>(offsetof(XRConfigurationDataAttribute_tC94F83D607B934FF3F894802DF857C51AA165236, ___U3CbuildSettingsKeyU3Ek__BackingField_1)); }
-	inline String_t* get_U3CbuildSettingsKeyU3Ek__BackingField_1() const { return ___U3CbuildSettingsKeyU3Ek__BackingField_1; }
-	inline String_t** get_address_of_U3CbuildSettingsKeyU3Ek__BackingField_1() { return &___U3CbuildSettingsKeyU3Ek__BackingField_1; }
-	inline void set_U3CbuildSettingsKeyU3Ek__BackingField_1(String_t* value)
-	{
-		___U3CbuildSettingsKeyU3Ek__BackingField_1 = value;
-		Il2CppCodeGenWriteBarrier((void**)(&___U3CbuildSettingsKeyU3Ek__BackingField_1), (void*)value);
-	}
 };
 
 
@@ -1848,12 +1805,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void List_1__ctor_m0F0E00088CF56FEACC9E32D8B7
 // System.Void System.Collections.Generic.HashSet`1<System.Object>::.ctor()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void HashSet_1__ctor_m2CDA40DEC2900A9CB00F8348FF386DF44ABD0EC7_gshared (HashSet_1_t680119C7ED8D82AED56CDB83DF6F0E9149852A9B * __this, const RuntimeMethod* method);
 
-// System.Void System.Attribute::.ctor()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Attribute__ctor_m5C1862A7DFC2C25A4797A8C5F681FBB5CB53ECE1 (Attribute_t037CA9D9F3B742C063DB364D2EEBBF9FC5772C71 * __this, const RuntimeMethod* method);
-// System.Void UnityEngine.XR.Management.XRConfigurationDataAttribute::set_displayName(System.String)
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void XRConfigurationDataAttribute_set_displayName_mFE7B985C02F56D827A5819BC7C622FEF8A34742E_inline (XRConfigurationDataAttribute_tC94F83D607B934FF3F894802DF857C51AA165236 * __this, String_t* ___value0, const RuntimeMethod* method);
-// System.Void UnityEngine.XR.Management.XRConfigurationDataAttribute::set_buildSettingsKey(System.String)
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void XRConfigurationDataAttribute_set_buildSettingsKey_mB3C7DFD97AA98506013E603211DCABDE89694889_inline (XRConfigurationDataAttribute_tC94F83D607B934FF3F894802DF857C51AA165236 * __this, String_t* ___value0, const RuntimeMethod* method);
 // System.Void UnityEngine.Debug::Log(System.Object)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Debug_Log_mC26E5AD0D8D156C7FFD173AA15827F69225E9DB8 (RuntimeObject * ___message0, const RuntimeMethod* method);
 // System.Void System.Action::.ctor(System.Object,System.IntPtr)
@@ -2034,78 +1985,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NotSupportedException__ctor_m3EA81A5B209
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-// System.String UnityEngine.XR.Management.XRConfigurationDataAttribute::get_displayName()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* XRConfigurationDataAttribute_get_displayName_mE3CA8CE22420D26CDEF10FBAC28E96056D2A6807 (XRConfigurationDataAttribute_tC94F83D607B934FF3F894802DF857C51AA165236 * __this, const RuntimeMethod* method)
-{
-	{
-		// public string displayName { get; set; }
-		String_t* L_0 = __this->get_U3CdisplayNameU3Ek__BackingField_0();
-		return L_0;
-	}
-}
-// System.Void UnityEngine.XR.Management.XRConfigurationDataAttribute::set_displayName(System.String)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void XRConfigurationDataAttribute_set_displayName_mFE7B985C02F56D827A5819BC7C622FEF8A34742E (XRConfigurationDataAttribute_tC94F83D607B934FF3F894802DF857C51AA165236 * __this, String_t* ___value0, const RuntimeMethod* method)
-{
-	{
-		// public string displayName { get; set; }
-		String_t* L_0 = ___value0;
-		__this->set_U3CdisplayNameU3Ek__BackingField_0(L_0);
-		return;
-	}
-}
-// System.String UnityEngine.XR.Management.XRConfigurationDataAttribute::get_buildSettingsKey()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* XRConfigurationDataAttribute_get_buildSettingsKey_m0E2C659E5049C4700D88265718DABE39625F4808 (XRConfigurationDataAttribute_tC94F83D607B934FF3F894802DF857C51AA165236 * __this, const RuntimeMethod* method)
-{
-	{
-		// public string buildSettingsKey { get; set; }
-		String_t* L_0 = __this->get_U3CbuildSettingsKeyU3Ek__BackingField_1();
-		return L_0;
-	}
-}
-// System.Void UnityEngine.XR.Management.XRConfigurationDataAttribute::set_buildSettingsKey(System.String)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void XRConfigurationDataAttribute_set_buildSettingsKey_mB3C7DFD97AA98506013E603211DCABDE89694889 (XRConfigurationDataAttribute_tC94F83D607B934FF3F894802DF857C51AA165236 * __this, String_t* ___value0, const RuntimeMethod* method)
-{
-	{
-		// public string buildSettingsKey { get; set; }
-		String_t* L_0 = ___value0;
-		__this->set_U3CbuildSettingsKeyU3Ek__BackingField_1(L_0);
-		return;
-	}
-}
-// System.Void UnityEngine.XR.Management.XRConfigurationDataAttribute::.ctor()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void XRConfigurationDataAttribute__ctor_m37A56C5A9B2814E993519016D189FA3AB8271E7B (XRConfigurationDataAttribute_tC94F83D607B934FF3F894802DF857C51AA165236 * __this, const RuntimeMethod* method)
-{
-	{
-		// private XRConfigurationDataAttribute() {}
-		Attribute__ctor_m5C1862A7DFC2C25A4797A8C5F681FBB5CB53ECE1(__this, /*hidden argument*/NULL);
-		// private XRConfigurationDataAttribute() {}
-		return;
-	}
-}
-// System.Void UnityEngine.XR.Management.XRConfigurationDataAttribute::.ctor(System.String,System.String)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void XRConfigurationDataAttribute__ctor_m8BC8EB57DFC926006F8E5F70E7A150F7711299BB (XRConfigurationDataAttribute_tC94F83D607B934FF3F894802DF857C51AA165236 * __this, String_t* ___displayName0, String_t* ___buildSettingsKey1, const RuntimeMethod* method)
-{
-	{
-		// public XRConfigurationDataAttribute(string displayName, string buildSettingsKey)
-		Attribute__ctor_m5C1862A7DFC2C25A4797A8C5F681FBB5CB53ECE1(__this, /*hidden argument*/NULL);
-		// this.displayName = displayName;
-		String_t* L_0 = ___displayName0;
-		XRConfigurationDataAttribute_set_displayName_mFE7B985C02F56D827A5819BC7C622FEF8A34742E_inline(__this, L_0, /*hidden argument*/NULL);
-		// this.buildSettingsKey = buildSettingsKey;
-		String_t* L_1 = ___buildSettingsKey1;
-		XRConfigurationDataAttribute_set_buildSettingsKey_mB3C7DFD97AA98506013E603211DCABDE89694889_inline(__this, L_1, /*hidden argument*/NULL);
-		// }
-		return;
-	}
-}
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif
@@ -4051,24 +3930,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject * U3CInitializeLoaderU3Ed__24_S
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void XRConfigurationDataAttribute_set_displayName_mFE7B985C02F56D827A5819BC7C622FEF8A34742E_inline (XRConfigurationDataAttribute_tC94F83D607B934FF3F894802DF857C51AA165236 * __this, String_t* ___value0, const RuntimeMethod* method)
-{
-	{
-		// public string displayName { get; set; }
-		String_t* L_0 = ___value0;
-		__this->set_U3CdisplayNameU3Ek__BackingField_0(L_0);
-		return;
-	}
-}
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void XRConfigurationDataAttribute_set_buildSettingsKey_mB3C7DFD97AA98506013E603211DCABDE89694889_inline (XRConfigurationDataAttribute_tC94F83D607B934FF3F894802DF857C51AA165236 * __this, String_t* ___value0, const RuntimeMethod* method)
-{
-	{
-		// public string buildSettingsKey { get; set; }
-		String_t* L_0 = ___value0;
-		__this->set_U3CbuildSettingsKeyU3Ek__BackingField_1(L_0);
-		return;
-	}
-}
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR XRGeneralSettings_t32A12852D8662239F55902E9FD6A299201C04042 * XRGeneralSettings_get_Instance_m8D7FC68414773249E7C8EEF06048916FD7E7D68D_inline (const RuntimeMethod* method)
 {
 	static bool s_Il2CppMethodInitialized;

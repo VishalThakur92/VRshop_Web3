@@ -59,7 +59,6 @@ IL2CPP_EXTERN_C RuntimeClass* Debug_tEB68BCBEB8EFD60F8043C67146DC05E7F50F374B_il
 IL2CPP_EXTERN_C RuntimeClass* GraphicsDeviceType_t531071CD9311C868D1279D2550F83670D18FB779_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* List_1_t1BC024192EE6F54EADD3239A60DB2A4A0B4B5048_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* List_1_t885BD663DFFEB6C32E74934BE1CE00D566657BA0_il2cpp_TypeInfo_var;
-IL2CPP_EXTERN_C RuntimeClass* Marshal_tEBAFAE20369FCB1B38C49C4E27A8D8C2C4B55058_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* ObjectU5BU5D_tC1F4EE0DB0B7300255F5FD4AF64FE4C585CF5ADE_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Object_tF2F3778131EFF286AF62B7B013A170F95A91571A_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* XRLoader_tBFC47C70E009A49E411CB3B9BCBBEAF677F3839C_il2cpp_TypeInfo_var;
@@ -67,7 +66,6 @@ IL2CPP_EXTERN_C String_t* _stringLiteral2F872AAC1A516DCAA175AE1B84192D8C32B13092
 IL2CPP_EXTERN_C String_t* _stringLiteral3753DF735E896BD3C9F2E5D3740D83C85D747CF9;
 IL2CPP_EXTERN_C String_t* _stringLiteral4D613657609485AE586A3379BA0E3FC13C1E1078;
 IL2CPP_EXTERN_C String_t* _stringLiteral6496F7984296622FCB5800829882431BEEBBF938;
-IL2CPP_EXTERN_C String_t* _stringLiteral79A624C95C08B55A8ED6447A3F256F20DCC5D71D;
 IL2CPP_EXTERN_C String_t* _stringLiteralBA4712892D0EFAF0547ACCC66224D7BB490DB84C;
 IL2CPP_EXTERN_C String_t* _stringLiteralC2A44E44A15EB373FDAC4FBB3937F549CFB725D1;
 IL2CPP_EXTERN_C String_t* _stringLiteralCA1C740BB705358D648D9FA67C01F3A466E6093E;
@@ -319,15 +317,6 @@ public:
 	{
 		___enableDebugPrints_0 = value;
 	}
-};
-
-
-// Google.XR.Cardboard.ApiConstants
-struct ApiConstants_t91D3445644F02585D098BC21622B926DA48D26E2  : public RuntimeObject
-{
-public:
-
-public:
 };
 
 struct Il2CppArrayBounds;
@@ -1529,8 +1518,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RectInt_tE7B8105A280C1AC73A4157ED41F9B86C9BD9
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool RectInt_Contains_m358BE36485760B80C7D7561E755F3D042EECA2FA (RectInt_tE7B8105A280C1AC73A4157ED41F9B86C9BD91E49 * __this, Vector2Int_tF49F5C2443670DE126D9EC8DBE81D8F480EAA6E9  ___position0, const RuntimeMethod* method);
 // UnityEngine.RectInt Google.XR.Cardboard.Widget::get_GearButtonRect()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RectInt_tE7B8105A280C1AC73A4157ED41F9B86C9BD91E49  Widget_get_GearButtonRect_m6B9824ECF1A924EB78ADE1D65240A660E5D8C6F2 (const RuntimeMethod* method);
-// System.Void UnityEngine.Debug::LogError(System.Object)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Debug_LogError_m8850D65592770A364D494025FF3A73E8D4D70485 (RuntimeObject * ___message0, const RuntimeMethod* method);
 // System.Single UnityEngine.Time::get_time()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float Time_get_time_m1A186074B1FCD448AB13A4B9D715AB9ED0B40844 (const RuntimeMethod* method);
 // System.Double Google.XR.Cardboard.Api::get_MinTriggerHeldPressedTime()
@@ -1547,16 +1534,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Api_CardboardQrCode_destroy_m47AD5031918
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Api_CardboardQrCode_getDeviceParamsChangedCount_m7680252A2F970927F9DDF9CCFDDBFB93EA6D68F6 (const RuntimeMethod* method);
 // System.Void Google.XR.Cardboard.Api::CardboardQrCode_scanQrCodeAndSaveDeviceParams()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Api_CardboardQrCode_scanQrCodeAndSaveDeviceParams_m8F2E642E05F032A75288F1BF373B7F293E71DA38 (const RuntimeMethod* method);
-// System.IntPtr System.Runtime.InteropServices.Marshal::StringToHGlobalAuto(System.String)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR intptr_t Marshal_StringToHGlobalAuto_m0388092C445F8E63CCEE7E9BC357A902A708FE4B (String_t* ___s0, const RuntimeMethod* method);
-// System.Int32 System.String::get_Length()
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t String_get_Length_m129FC0ADA02FECBED3C0B1A809AE84A5AEE1CF09_inline (String_t* __this, const RuntimeMethod* method);
-// System.Void Google.XR.Cardboard.Api::CardboardQrCode_saveDeviceParams(System.IntPtr,System.Int32)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Api_CardboardQrCode_saveDeviceParams_m8C00FEC2FBE6C5E9BF4EEEF66D6E173AEE0064D6 (intptr_t ___uri0, int32_t ___size1, const RuntimeMethod* method);
-// System.Void System.Runtime.InteropServices.Marshal::FreeHGlobal(System.IntPtr)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Marshal_FreeHGlobal_m53FC4846F5D3106BA25B52C321005C227E424F72 (intptr_t ___hglobal0, const RuntimeMethod* method);
 // System.Void Google.XR.Cardboard.Api::CardboardUnity_setDeviceParametersChanged()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Api_CardboardUnity_setDeviceParametersChanged_mDEC62B73B4B7F687A64629EC7AE1925999ABDC26 (const RuntimeMethod* method);
+// System.Void UnityEngine.Debug::LogError(System.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Debug_LogError_m8850D65592770A364D494025FF3A73E8D4D70485 (RuntimeObject * ___message0, const RuntimeMethod* method);
 // UnityEngine.ScreenOrientation UnityEngine.Screen::get_orientation()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Screen_get_orientation_m1C42BB2AF3CA157B8015FA7AB36F8BB1329660E7 (const RuntimeMethod* method);
 // System.Void Google.XR.Cardboard.XRLoader::SetViewportOrientation(UnityEngine.ScreenOrientation)
@@ -1755,9 +1736,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Mathf_RoundToInt_m56850BDF60FF9E3441C
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Vector2Int__ctor_mB2B73108B6DD3ADC1B515D7DD9116ECAC6833726_inline (Vector2Int_tF49F5C2443670DE126D9EC8DBE81D8F480EAA6E9 * __this, int32_t ___x0, int32_t ___y1, const RuntimeMethod* method);
 #if FORCE_PINVOKE_INTERNAL || FORCE_PINVOKE_GfxPluginCardboard_INTERNAL
 IL2CPP_EXTERN_C void DEFAULT_CALL CardboardQrCode_scanQrCodeAndSaveDeviceParams();
-#endif
-#if FORCE_PINVOKE_INTERNAL || FORCE_PINVOKE_GfxPluginCardboard_INTERNAL
-IL2CPP_EXTERN_C void DEFAULT_CALL CardboardQrCode_saveDeviceParams(intptr_t, int32_t);
 #endif
 #if FORCE_PINVOKE_INTERNAL || FORCE_PINVOKE_GfxPluginCardboard_INTERNAL
 IL2CPP_EXTERN_C void DEFAULT_CALL CardboardQrCode_getSavedDeviceParams(intptr_t*, int32_t*);
@@ -2062,45 +2040,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR double Api_get_MinTriggerHeldPressedTime_m6DB
 		return L_0;
 	}
 }
-// System.Void Google.XR.Cardboard.Api::set_MinTriggerHeldPressedTime(System.Double)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Api_set_MinTriggerHeldPressedTime_mAE078B36AB7435047FF7D9354FAC90FA60B1D506 (double ___value0, const RuntimeMethod* method)
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Api_t3945CE98308AD5031CC7F76B68A978B131AF9BE5_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Debug_tEB68BCBEB8EFD60F8043C67146DC05E7F50F374B_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral79A624C95C08B55A8ED6447A3F256F20DCC5D71D);
-		s_Il2CppMethodInitialized = true;
-	}
-	{
-		// if (value <= 0.0)
-		double L_0 = ___value0;
-		if ((!(((double)L_0) <= ((double)(0.0)))))
-		{
-			goto IL_0017;
-		}
-	}
-	{
-		// Debug.LogError(
-		//     "[CardboardApi] Trying to set a negative value to "
-		//     + "MinTriggerHeldPressedTime.");
-		IL2CPP_RUNTIME_CLASS_INIT(Debug_tEB68BCBEB8EFD60F8043C67146DC05E7F50F374B_il2cpp_TypeInfo_var);
-		Debug_LogError_m8850D65592770A364D494025FF3A73E8D4D70485(_stringLiteral79A624C95C08B55A8ED6447A3F256F20DCC5D71D, /*hidden argument*/NULL);
-		// }
-		return;
-	}
-
-IL_0017:
-	{
-		// _minTriggerHeldPressedTime = value;
-		double L_1 = ___value0;
-		IL2CPP_RUNTIME_CLASS_INIT(Api_t3945CE98308AD5031CC7F76B68A978B131AF9BE5_il2cpp_TypeInfo_var);
-		((Api_t3945CE98308AD5031CC7F76B68A978B131AF9BE5_StaticFields*)il2cpp_codegen_static_fields_for(Api_t3945CE98308AD5031CC7F76B68A978B131AF9BE5_il2cpp_TypeInfo_var))->set__minTriggerHeldPressedTime_4(L_1);
-		// }
-		return;
-	}
-}
 // System.Boolean Google.XR.Cardboard.Api::get_IsTriggerHeldPressed()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Api_get_IsTriggerHeldPressed_mF036AB16C9BD67B816466A6820384A5E0572761B (const RuntimeMethod* method)
 {
@@ -2382,59 +2321,6 @@ IL_0008:
 		return;
 	}
 }
-// System.Void Google.XR.Cardboard.Api::SaveDeviceParams(System.String)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Api_SaveDeviceParams_mB2C70F931AA13C1F76585C586F763E60D162A1CF (String_t* ___uri0, const RuntimeMethod* method)
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Api_t3945CE98308AD5031CC7F76B68A978B131AF9BE5_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Debug_tEB68BCBEB8EFD60F8043C67146DC05E7F50F374B_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Marshal_tEBAFAE20369FCB1B38C49C4E27A8D8C2C4B55058_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&XRLoader_tBFC47C70E009A49E411CB3B9BCBBEAF677F3839C_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralCA1C740BB705358D648D9FA67C01F3A466E6093E);
-		s_Il2CppMethodInitialized = true;
-	}
-	{
-		// if (!XRLoader._isInitialized)
-		IL2CPP_RUNTIME_CLASS_INIT(XRLoader_tBFC47C70E009A49E411CB3B9BCBBEAF677F3839C_il2cpp_TypeInfo_var);
-		bool L_0;
-		L_0 = XRLoader_get__isInitialized_m22D0EC4CE294402F194A3BBBEEA27ED2993CF227_inline(/*hidden argument*/NULL);
-		if (L_0)
-		{
-			goto IL_0012;
-		}
-	}
-	{
-		// Debug.LogError(
-		//         "Please initialize Cardboard XR loader before calling this function.");
-		IL2CPP_RUNTIME_CLASS_INIT(Debug_tEB68BCBEB8EFD60F8043C67146DC05E7F50F374B_il2cpp_TypeInfo_var);
-		Debug_LogError_m8850D65592770A364D494025FF3A73E8D4D70485(_stringLiteralCA1C740BB705358D648D9FA67C01F3A466E6093E, /*hidden argument*/NULL);
-		// return;
-		return;
-	}
-
-IL_0012:
-	{
-		// IntPtr rawUri = Marshal.StringToHGlobalAuto(uri);
-		String_t* L_1 = ___uri0;
-		IL2CPP_RUNTIME_CLASS_INIT(Marshal_tEBAFAE20369FCB1B38C49C4E27A8D8C2C4B55058_il2cpp_TypeInfo_var);
-		intptr_t L_2;
-		L_2 = Marshal_StringToHGlobalAuto_m0388092C445F8E63CCEE7E9BC357A902A708FE4B(L_1, /*hidden argument*/NULL);
-		// CardboardQrCode_saveDeviceParams(rawUri, uri.Length);
-		intptr_t L_3 = (intptr_t)L_2;
-		String_t* L_4 = ___uri0;
-		NullCheck(L_4);
-		int32_t L_5;
-		L_5 = String_get_Length_m129FC0ADA02FECBED3C0B1A809AE84A5AEE1CF09_inline(L_4, /*hidden argument*/NULL);
-		IL2CPP_RUNTIME_CLASS_INIT(Api_t3945CE98308AD5031CC7F76B68A978B131AF9BE5_il2cpp_TypeInfo_var);
-		Api_CardboardQrCode_saveDeviceParams_m8C00FEC2FBE6C5E9BF4EEEF66D6E173AEE0064D6((intptr_t)L_3, L_5, /*hidden argument*/NULL);
-		// Marshal.FreeHGlobal(rawUri);
-		Marshal_FreeHGlobal_m53FC4846F5D3106BA25B52C321005C227E424F72((intptr_t)L_3, /*hidden argument*/NULL);
-		// }
-		return;
-	}
-}
 // System.Boolean Google.XR.Cardboard.Api::HasNewDeviceParams()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Api_HasNewDeviceParams_mD2F906E4FC4A9F70FA619D43C2A91ABFC99D5098 (const RuntimeMethod* method)
 {
@@ -2652,28 +2538,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Api_CardboardQrCode_scanQrCodeAndSaveDev
 	#endif
 
 }
-// System.Void Google.XR.Cardboard.Api::CardboardQrCode_saveDeviceParams(System.IntPtr,System.Int32)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Api_CardboardQrCode_saveDeviceParams_m8C00FEC2FBE6C5E9BF4EEEF66D6E173AEE0064D6 (intptr_t ___uri0, int32_t ___size1, const RuntimeMethod* method)
-{
-	typedef void (DEFAULT_CALL *PInvokeFunc) (intptr_t, int32_t);
-	#if !FORCE_PINVOKE_INTERNAL && !FORCE_PINVOKE_GfxPluginCardboard_INTERNAL
-	static PInvokeFunc il2cppPInvokeFunc;
-	if (il2cppPInvokeFunc == NULL)
-	{
-		int parameterSize = sizeof(intptr_t) + sizeof(int32_t);
-		il2cppPInvokeFunc = il2cpp_codegen_resolve_pinvoke<PInvokeFunc>(IL2CPP_NATIVE_STRING("GfxPluginCardboard"), "CardboardQrCode_saveDeviceParams", IL2CPP_CALL_DEFAULT, CHARSET_NOT_SPECIFIED, parameterSize, false);
-		IL2CPP_ASSERT(il2cppPInvokeFunc != NULL);
-	}
-	#endif
-
-	// Native function invocation
-	#if FORCE_PINVOKE_INTERNAL || FORCE_PINVOKE_GfxPluginCardboard_INTERNAL
-	reinterpret_cast<PInvokeFunc>(CardboardQrCode_saveDeviceParams)(___uri0, ___size1);
-	#else
-	il2cppPInvokeFunc(___uri0, ___size1);
-	#endif
-
-}
 // System.Void Google.XR.Cardboard.Api::CardboardQrCode_getSavedDeviceParams(System.IntPtr&,System.Int32&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Api_CardboardQrCode_getSavedDeviceParams_m4CD010F02B5C0500A538E78BA4D340E42DD78163 (intptr_t* ___encodedDeviceParams0, int32_t* ___size1, const RuntimeMethod* method)
 {
@@ -2806,14 +2670,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Api__cctor_m13B8930FFF332E5E41DF42572810
 		return;
 	}
 }
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif
@@ -3915,13 +3771,6 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool XRLoader_get__isInitialized_
 		// internal static bool _isInitialized { get; private set; }
 		IL2CPP_RUNTIME_CLASS_INIT(XRLoader_tBFC47C70E009A49E411CB3B9BCBBEAF677F3839C_il2cpp_TypeInfo_var);
 		bool L_0 = ((XRLoader_tBFC47C70E009A49E411CB3B9BCBBEAF677F3839C_StaticFields*)il2cpp_codegen_static_fields_for(XRLoader_tBFC47C70E009A49E411CB3B9BCBBEAF677F3839C_il2cpp_TypeInfo_var))->get_U3C_isInitializedU3Ek__BackingField_9();
-		return L_0;
-	}
-}
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t String_get_Length_m129FC0ADA02FECBED3C0B1A809AE84A5AEE1CF09_inline (String_t* __this, const RuntimeMethod* method)
-{
-	{
-		int32_t L_0 = __this->get_m_stringLength_0();
 		return L_0;
 	}
 }

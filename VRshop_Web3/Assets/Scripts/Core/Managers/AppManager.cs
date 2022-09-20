@@ -1,3 +1,4 @@
+using MoralisUnity.Kits.AuthenticationKit;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,9 @@ using UnityEngine.Networking;
 
 public class AppManager : MonoBehaviour
 {
+
+    [SerializeField]
+    string state;
     #region Parameters
     //Singleton instance
     public static AppManager Instance { get; private set; }
@@ -31,13 +35,16 @@ public class AppManager : MonoBehaviour
     [SerializeField]
     ProductUIElement productUIPrefab;
     #endregion
+    public void OnStateChange(AuthenticationKitState val) {
+        state = val.ToString();
 
+    }
 
     #region Core
     private void Awake()
     {
-        Cursor.lockState = CursorLockMode.Confined;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Confined;
+        //Cursor.visible = false;
         if (Instance != null && Instance != this)
         {
             Destroy(this);
