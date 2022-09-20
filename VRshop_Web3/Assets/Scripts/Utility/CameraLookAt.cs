@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CameraLookAt : MonoBehaviour
 {
-    void Update()
+    void OnEnable()
     {
-        transform.forward = Camera.main.transform.forward;
+        //transform.forward = Camera.main.transform.forward;
     }
 }

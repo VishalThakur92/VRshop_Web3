@@ -6,6 +6,9 @@ using UnityEngine.Networking;
 public class AppManager : MonoBehaviour
 {
     #region Parameters
+    //Singleton instance
+    public static AppManager Instance { get; private set; }
+
     //URL to JSON located in Cloud
     string productsDataURL = "https://kings-guardians.com/KingsGaurdiansAndroidAssets/test/products.json";
 
@@ -31,6 +34,16 @@ public class AppManager : MonoBehaviour
 
 
     #region Core
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+            return;
+        }
+        Instance = this;
+    }
     // Start is called before the first frame update
     IEnumerator Start()
     {
@@ -74,6 +87,11 @@ public class AppManager : MonoBehaviour
             newProductUIElement.Initialize(productsData.products[i]);
             yield return null;
         }
+    }
+
+
+    public void DeleteLocalProduct(int uniqueID) { 
+        //Make product redownloadble in shop UI
     }
     #endregion
 

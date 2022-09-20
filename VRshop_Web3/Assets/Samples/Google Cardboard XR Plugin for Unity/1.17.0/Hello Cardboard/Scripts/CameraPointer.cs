@@ -74,13 +74,13 @@ public class CameraPointer : MonoBehaviour
         mouseX = Input.GetAxis("Mouse X");
         mouseY = -Input.GetAxis("Mouse Y");
 
-        rotY += mouseX * 500  * Time.deltaTime;
-        rotX += mouseY * 500 * Time.deltaTime;
+        rotY += mouseX * 300  * Time.deltaTime;
+        rotX += mouseY * 300 * Time.deltaTime;
 
         rotX = Mathf.Clamp(rotX, -80, 80);
 
         Quaternion localRotation = Quaternion.Euler(rotX, rotY, 0.0f);
-        transform.rotation = Quaternion.Lerp(transform.rotation , localRotation , Time.deltaTime * 100);
+        transform.rotation = localRotation;
     }
 #endif
 
@@ -106,7 +106,7 @@ public class CameraPointer : MonoBehaviour
             // GameObject detected in front of the camera.
             if (_gazedAtObject != hit.transform.gameObject)
             {
-                _gazedAtObject?.GetComponent<Interactable>()?.OnPointerExit();
+                _gazedAtObject?.GetComponent<Interactable>().OnPointerExit();
                 reticle.color = interactableColor;
                 // New GameObject.
                 //_gazedAtObject?.SendMessage("OnPointerExit");
