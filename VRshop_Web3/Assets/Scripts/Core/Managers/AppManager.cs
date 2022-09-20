@@ -34,7 +34,6 @@ public class AppManager : MonoBehaviour
 
 
     #region Core
-
     private void Awake()
     {
         Cursor.lockState = CursorLockMode.Confined;
