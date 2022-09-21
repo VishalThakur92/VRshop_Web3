@@ -112,7 +112,7 @@ public class ShopManager : MonoBehaviour,IInteractable
     public void OnProductPurchased()
     {
         currentProductInfo.isPurchased = true;
-        productNameText.text = currentProductInfo.name + " (Downloading..)";
+        productNameText.text = currentProductInfo.name + " (Downloading)";
         productPriceText.text = string.Empty;
         PurchaseButton.gameObject.SetActive(!currentProductInfo.isPurchased);
         _ = LoadAssetBundleAsync(currentProductInfo.assetBundleURL);
@@ -127,12 +127,9 @@ public class ShopManager : MonoBehaviour,IInteractable
         GameObject spawnedABObj = Instantiate(remoteAB.LoadAsset(currentProductInfo.name)) as GameObject;
         spawnedABObj.transform.position = new Vector3(0, 0.1f, 2.19f);
         remoteAB.Unload(false);
-
-        await Task.Delay(1000);
-
         productNameText.text = currentProductInfo.name + " (Purchased)";
 
-        await Task.Delay(1000);
+        await Task.Delay(500);
         OnShopExit();
         Data.DataEvents.OnProductPurchased.Invoke();
     }
