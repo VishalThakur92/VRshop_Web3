@@ -61,8 +61,15 @@ public class ShopManager : MonoBehaviour,IInteractable
 
         Data.DataEvents.OnProductRepositionStart += OnProductMoveStart;
         Data.DataEvents.OnProductRepositionEnd += OnProductMoveEnd;
+
+        Data.DataEvents.OnProductPlaySpecialStart+= OnProductMoveStart;
+        Data.DataEvents.OnProductPlaySpecialEnd += OnProductMoveEnd;
     }
 
+
+    void Start() {
+        StartCoroutine(RefreshProducts());
+    }
 
     void OnDestroy() {
         Data.DataEvents.OnProductRepositionStart -= OnProductMoveStart;
@@ -139,7 +146,6 @@ public class ShopManager : MonoBehaviour,IInteractable
 
     void OnShopEnter()
     {
-        StartCoroutine(RefreshProducts());
         GetComponent<BoxCollider>().enabled = false;
         shopMesh.SetActive(false);
         shopCanvas.SetActive(true);

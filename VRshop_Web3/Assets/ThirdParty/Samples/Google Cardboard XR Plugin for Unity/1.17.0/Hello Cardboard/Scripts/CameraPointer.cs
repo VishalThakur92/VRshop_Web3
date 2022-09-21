@@ -67,11 +67,11 @@ public class CameraPointer : MonoBehaviour
         Data.DataEvents.OnProductRepositionStart -= StartRepositioningBehaviour;
     }
 
-    //private void OnGUI()
-    //{
-    //    GUILayout.TextField($"Current Selectable = {currentSelectable}");
-    //    GUILayout.TextField($"Current Raycast hit obj = {_gazedAtObject}");
-    //}
+    private void OnGUI()
+    {
+        GUILayout.TextField($"Current Selectable = {currentSelectable}");
+        GUILayout.TextField($"Current Raycast hit obj = {_gazedAtObject}");
+    }
     /// <summary>
     /// Update is called once per frame.
     /// </summary>

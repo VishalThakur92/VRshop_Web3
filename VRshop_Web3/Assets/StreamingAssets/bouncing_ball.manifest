@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1314185243
+CRC: 17699102
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: fb7920b1c8e92f28ca821d77b2c2d2e7
+    Hash: f837d2e3003814b9f9fa9f3255c59a1a
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 5921336b8c7264ece5e836aada853917
+    Hash: ac578b30d0aa4041975113e3338dc9a9
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -25,6 +25,8 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
+- Class: 54
+  Script: {instanceID: 0}
 - Class: 65
   Script: {instanceID: 0}
 - Class: 114
@@ -38,12 +40,18 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 5ffa83385d263264995cbf0ff44ca338, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 989d3aca2a2c73e448cfc2543177f25e, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 128
+  Script: {instanceID: 0}
+- Class: 134
+  Script: {instanceID: 0}
+- Class: 135
   Script: {instanceID: 0}
 - Class: 213
   Script: {instanceID: 0}
@@ -77,5 +85,5 @@ SerializeReferenceClassIdentifiers:
 - AssemblyName: UnityEngine.UI
   ClassName: UnityEngine.UI.SpriteState
 Assets:
-- Assets/BundledAssets/chair.prefab
+- Assets/BundledAssets/bouncing_ball.prefab
 Dependencies: []

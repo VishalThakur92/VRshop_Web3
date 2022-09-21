@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class ProductModelElement : MonoBehaviour, IInteractable
@@ -19,6 +21,10 @@ public class ProductModelElement : MonoBehaviour, IInteractable
 
     [SerializeField]
     GameObject meshRef;
+
+    [SerializeField]
+    UnityEvent OnPlayBehaviour;
+
 
     void Start() {
         ToggleUICanvas(false);
@@ -90,6 +96,19 @@ public class ProductModelElement : MonoBehaviour, IInteractable
         StartCoroutine(Rotate(-Vector3.up));
     }
 
+    public void OnPlaySpecialStart() {
+        ToggleUICanvas(false);
+        GetComponent<BoxCollider>().enabled = false;
+        OnPlayBehaviour.Invoke();
+        Data.DataEvents.OnProductPlaySpecialStart.Invoke(gameObject);
+        Data.DataEvents.OnProductPlaySpecialEnd += OnPlaySpecialEnd;
+    }
+
+
+    public void OnPlaySpecialEnd() {
+        GetComponent<BoxCollider>().enabled = true;
+        Data.DataEvents.OnProductPlaySpecialEnd -= OnPlaySpecialEnd;
+    }
 
     public void IncreaseSize()
     {

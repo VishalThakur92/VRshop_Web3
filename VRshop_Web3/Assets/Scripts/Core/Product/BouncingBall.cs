@@ -24,11 +24,32 @@ public class BouncingBall : MonoBehaviour
 
     private Vector3 lastFrameVelocity;
     private Rigidbody rb;
+    [SerializeField]
+    int returnsAfterSeconds = 5;
+    bool finishBouncing = false;
+
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.AddForce(startForce, ForceMode.Impulse);
+    }
+
+
+    public void StartBouncingRandomly()
+    {
+        playerTransform.GetComponent<BoxCollider>().enabled = false;
+        rb.isKinematic = false;
+        float randomX = Random.Range(-3, 3);
+        float randomY = Random.Range(3, 6);
+        float randomZ = Random.Range(-3, 3);
+        rb.AddForce(new Vector3(randomX, randomY, randomZ), ForceMode.Impulse);
+        StartCoroutine(RecallToHome());
+    }
+
+    IEnumerator RecallToHome() {
+        yield return new WaitForSeconds(returnsAfterSeconds);
+        finishBouncing = true;
+        playerTransform.GetComponent<BoxCollider>().enabled = true;
     }
 
     private void OnEnable()
@@ -39,16 +60,10 @@ public class BouncingBall : MonoBehaviour
 
     private void Update()
     {
-        lastFrameVelocity = rb.velocity;
-
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            finishBouncing = true;
-        }
+        if(finishBouncing)
+            lastFrameVelocity = rb.velocity;
     }
 
-
-    bool finishBouncing = false;
 
     //Vector3 lastCollisionNormal;
     private void OnCollisionEnter(Collision collision)
@@ -58,13 +73,20 @@ public class BouncingBall : MonoBehaviour
 
         //lastCollisionNormal = collision.contacts[0].normal;
 
-        if (collision.gameObject.name != "BallHome")
+        if (collision.gameObject.name != "mesh")
             return;
 
-        rb.isKinematic = true;
-        transform.position = playerTransform.position;
+        OnRecallSuccessfull();
+
     }
 
+
+    void OnRecallSuccessfull() {
+        rb.isKinematic = true;
+        transform.localPosition = new Vector3(0, 0.4f, 0);
+        finishBouncing = false;
+        Data.DataEvents.OnProductPlaySpecialEnd.Invoke();
+    }
 
     private void Bounce(Vector3 collisionNormal)
     {

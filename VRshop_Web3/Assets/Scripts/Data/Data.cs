@@ -20,6 +20,8 @@ public struct Data
         public static UnityAction<GameObject> OnProductRepositionStart;
         public static UnityAction OnProductRepositionEnd;
         public static UnityAction OnProductPurchased;
+        public static UnityAction<GameObject> OnProductPlaySpecialStart;
+        public static UnityAction OnProductPlaySpecialEnd;
     }
     #endregion
 }
