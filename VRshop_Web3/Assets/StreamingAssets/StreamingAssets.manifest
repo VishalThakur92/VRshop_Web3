@@ -1,10 +1,11 @@
 ManifestFileVersion: 0
-CRC: 80363183
+CRC: 2432382945
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
       Name: table
-      Dependencies: {}
+      Dependencies:
+        Dependency_0: chair
     Info_1:
       Name: chair
       Dependencies: {}

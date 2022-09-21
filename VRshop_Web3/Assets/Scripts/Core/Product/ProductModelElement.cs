@@ -55,20 +55,22 @@ public class ProductModelElement : MonoBehaviour, IInteractable
     //int value = 0;
     public void OnMoveStart()
     {
-        Debug.LogError("Product Move start");
+        //Debug.LogError("Product Move start");
         GetComponent<BoxCollider>().enabled = false;
         ToggleUICanvas(false);
         Data.DataEvents.OnProductRepositionStart.Invoke(gameObject);
         Data.DataEvents.OnProductRepositionEnd += OnMoveEnd;
+        isPlaced = false;
     }
 
     public void OnMoveEnd()
     {
-        Debug.LogError("Product Move end");
+        //Debug.LogError("Product Move end");
         GetComponent<BoxCollider>().enabled = true;
         transform.parent = null;
         Data.DataEvents.OnProductRepositionEnd -= OnMoveEnd;
         Data.DataEvents.OnProductPurchased -= OnMoveStart;
+        isPlaced = true;
     }
 
 
