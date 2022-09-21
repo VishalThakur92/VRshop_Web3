@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using MoralisUnity.Kits.AuthenticationKit;
 using UnityEngine.SceneManagement;
+using WalletConnectSharp.Unity;
+
 public class LoginManager : MonoBehaviour
 {
     [SerializeField]
@@ -18,8 +20,6 @@ public class LoginManager : MonoBehaviour
     [SerializeField]
     Button connectWalletButton, guestLoginButton;
 
-
-
     public void OnGuestLogin() {
         //Show Fadeout and load Main scene
         StartCoroutine(FadeOutToMainScene());
@@ -31,7 +31,8 @@ public class LoginManager : MonoBehaviour
         //Hide Project Name Panel
         ProjectNamePanel.SetActive(true);
         //Save player info to Globals
-        Data.userWalletAddress = "put address here";
+        if(!string.IsNullOrEmpty(WalletConnect.Instance.Session.Accounts[0]))
+            Data.userWalletAddress = WalletConnect.Instance.Session.Accounts[0];
 
         //Show Fadeout and load Main scene
         StartCoroutine(FadeOutToMainScene());

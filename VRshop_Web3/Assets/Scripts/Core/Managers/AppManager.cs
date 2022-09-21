@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class AppManager : MonoBehaviour
 {
@@ -34,6 +35,9 @@ public class AppManager : MonoBehaviour
     //product UI element prefab
     [SerializeField]
     ProductUIElement productUIPrefab;
+
+    [SerializeField]
+    Text UserIDText;
     #endregion
     public void OnStateChange(AuthenticationKitState val) {
         state = val.ToString();
@@ -43,6 +47,7 @@ public class AppManager : MonoBehaviour
     #region Core
     private void Awake()
     {
+
         //Cursor.lockState = CursorLockMode.Confined;
         //Cursor.visible = false;
         if (Instance != null && Instance != this)
@@ -55,8 +60,8 @@ public class AppManager : MonoBehaviour
     // Start is called before the first frame update
     IEnumerator Start()
     {
-        //Show Loading UI
-
+        //Show user ID/wallet address
+        UserIDText.text = Data.userWalletAddress;
 
         //Download Products data from JSON located in cloud
         StartCoroutine(LoadProductsDataFromCloud(productsDataURL));
