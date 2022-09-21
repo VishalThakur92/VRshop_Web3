@@ -55,7 +55,7 @@ public class LoginManager : MonoBehaviour
 
             case AuthenticationKitState.WalletConnecting:
                 ProjectNamePanel.SetActive(false);
-                guestLoginButton.gameObject.SetActive(false);
+                //guestLoginButton.gameObject.SetActive(false);
                 break;
             case AuthenticationKitState.WalletSigning:
                 qrCodeStatusText.text = "Confirm your wallet";
