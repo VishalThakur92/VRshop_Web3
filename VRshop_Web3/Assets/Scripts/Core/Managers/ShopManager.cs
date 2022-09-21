@@ -40,6 +40,14 @@ public class ShopManager : MonoBehaviour,IInteractable
             return;
         }
         Instance = this;
+
+        Data.DataEvents.OnProductRepositionStart += OnProductMoveStart;
+        Data.DataEvents.OnProductRepositionEnd += OnProductMoveEnd;
+    }
+
+    void OnDestroy() {
+        Data.DataEvents.OnProductRepositionStart -= OnProductMoveStart;
+        Data.DataEvents.OnProductRepositionEnd -= OnProductMoveEnd;
     }
 
     public void OnPointerEnter() {
@@ -119,7 +127,14 @@ public class ShopManager : MonoBehaviour,IInteractable
         GameObject spawnedABObj = Instantiate(remoteAB.LoadAsset(currentProductInfo.name)) as GameObject;
         spawnedABObj.transform.position = new Vector3(0, 0.1f, 2.19f);
         remoteAB.Unload(false);
+
+        await Task.Delay(1000);
+
         productNameText.text = currentProductInfo.name + " (Purchased)";
+
+        await Task.Delay(1000);
+        OnShopExit();
+        Data.DataEvents.OnProductPurchased.Invoke();
     }
 
     //Download and show this product's Icon Image
@@ -130,5 +145,23 @@ public class ShopManager : MonoBehaviour,IInteractable
         productImage.sprite = Sprite.Create(texture2D, rec, new Vector2(0.5f, 0.5f), 100);
     }
 
+    void OnProductMoveStart(GameObject product)
+    {
+        DisableShop();
+    }
+    void OnProductMoveEnd()
+    {
+        EnableShop();
+    }
+
+    void DisableShop()
+    {
+        GetComponent<BoxCollider>().enabled = false;
+    }
+
+    void EnableShop()
+    {
+        GetComponent<BoxCollider>().enabled = true;
+    }
     #endregion
 }
