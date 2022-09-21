@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class ProductInteractionCanvas : MonoBehaviour,Interactable
+public class ProductInteractionCanvas : MonoBehaviour,IInteractable
 {
     
     // Start is called before the first frame update

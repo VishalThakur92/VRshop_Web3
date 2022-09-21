@@ -67,8 +67,8 @@ public class CameraPointer : MonoBehaviour
 
     private void OnGUI()
     {
-        //GUILayout.TextField($"Current Selectable = {currentSelectable}");
-        //GUILayout.TextField($"Current Raycast hit obj = {_gazedAtObject}");
+        GUILayout.TextField($"Current Selectable = {currentSelectable}");
+        GUILayout.TextField($"Current Raycast hit obj = {_gazedAtObject}");
     }
     /// <summary>
     /// Update is called once per frame.
@@ -88,7 +88,7 @@ public class CameraPointer : MonoBehaviour
                    
                 reticle.color = interactableColor;
 
-                _gazedAtObject?.GetComponent<Interactable>()?.OnPointerExit();
+                _gazedAtObject?.GetComponent<IInteractable>()?.OnPointerExit();
                 // New GameObject.
                 //_gazedAtObject?.SendMessage("OnPointerExit");
                 _gazedAtObject = hit.transform.gameObject;
@@ -106,7 +106,7 @@ public class CameraPointer : MonoBehaviour
 
             }
 
-            hit.transform.gameObject.GetComponent<Interactable>()?.OnPointerEnter();
+            hit.transform.gameObject.GetComponent<IInteractable>()?.OnPointerEnter();
         }
         else
         {
@@ -119,7 +119,7 @@ public class CameraPointer : MonoBehaviour
             //reticle.rectTransform.sizeDelta = Vector2.Lerp(reticle.rectTransform.sizeDelta, normalRect, Time.deltaTime * 6);
             // No GameObject detected in front of the camera.
 
-            _gazedAtObject?.GetComponent<Interactable>()?.OnPointerExit();
+            _gazedAtObject?.GetComponent<IInteractable>()?.OnPointerExit();
             //CurvedUI.CurvedUIEventSystem.instance.currentSelectedGameObject.GetComponent<Button>().OnPointerExit.
             //_gazedAtObject?.SendMessage("OnPointerExit");
             _gazedAtObject = null;
@@ -139,11 +139,12 @@ public class CameraPointer : MonoBehaviour
             }
             else
             {
+                _gazedAtObject?.GetComponent<IInteractable>()?.OnPointerClick();
 
-                _gazedAtObject?.GetComponent<Interactable>()?.OnPointerClick();
                 _gazedAtObject?.GetComponent<Button>()?.onClick.Invoke();
-
+                
                 CurvedUI.CurvedUIEventSystem.instance.currentSelectedGameObject?.GetComponent<Button>()?.onClick.Invoke();
+                CurvedUI.CurvedUIEventSystem.instance.SetSelectedGameObject(null , null);
 
                 //Debug.LogError(EventSystem.current.gameObject?.name);
             }

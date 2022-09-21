@@ -48,8 +48,8 @@ public class AppManager : MonoBehaviour
     private void Awake()
     {
 
-        //Cursor.lockState = CursorLockMode.Confined;
-        //Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = false;
         if (Instance != null && Instance != this)
         {
             Destroy(this);

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ProductModelElement : MonoBehaviour, Interactable
+public class ProductModelElement : MonoBehaviour, IInteractable
 {
     [SerializeField]
     GameObject UICanvas;

@@ -38,7 +38,7 @@ public class CameraLook : MonoBehaviour
         m_parent = transform.parent;
         m_camera = Camera.main;
         if (m_camera != null) m_fieldOfView = m_camera.fieldOfView;
-        MouseLock();
+        //MouseLock();
     }
 
     private void Update()
