@@ -119,7 +119,6 @@ public class ShopManager : MonoBehaviour,IInteractable
         GameObject spawnedABObj = Instantiate(remoteAB.LoadAsset(currentProductInfo.name)) as GameObject;
         spawnedABObj.transform.position = new Vector3(0, 0.1f, 2.19f);
         remoteAB.Unload(false);
-        _ = LoadAssetBundleAsync(currentProductInfo.assetBundleURL);
         productNameText.text = currentProductInfo.name + " (Purchased)";
     }
 
