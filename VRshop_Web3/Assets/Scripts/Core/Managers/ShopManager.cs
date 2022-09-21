@@ -147,6 +147,7 @@ public class ShopManager : MonoBehaviour,IInteractable
 
     void OnProductMoveStart(GameObject product)
     {
+        OnShopExit();
         DisableShop();
     }
     void OnProductMoveEnd()
