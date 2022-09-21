@@ -46,5 +46,9 @@ public class ShopManager : MonoBehaviour,IInteractable
         shopMesh.SetActive(true);
         shopCanvas.SetActive(false);
     }
+
+    public void OnProductPurchased() { 
+    
+    }
     #endregion
 }
