@@ -102,12 +102,6 @@ public class ProductModelElement : MonoBehaviour, IInteractable
         StartCoroutine(Resize(meshRef.transform.localScale.x, meshRef.transform.localScale.x- .3f));
     }
 
-    public void OnDelete() {
-        AppManager.Instance.DeleteLocalProduct(0);
-
-        Destroy(gameObject);
-    }
-
     IEnumerator Rotate(Vector3 rotation)
     {
         float startTime = Time.time;

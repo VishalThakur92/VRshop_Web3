@@ -26,6 +26,8 @@ using UnityEngine.UI;
 /// </summary>
 public class CameraPointer : MonoBehaviour
 {
+    [SerializeField]
+    AudioSource buttonClickAudio;
     private const float _maxDistance = 10;
     private GameObject _gazedAtObject = null;
     [SerializeField]
@@ -88,6 +90,7 @@ public class CameraPointer : MonoBehaviour
                 //Place Obj only is is placed on Ground not otherwise
                 if (Input.GetMouseButtonUp(0))
                 {
+                    buttonClickAudio.Play();
                     Data.DataEvents.OnProductRepositionEnd.Invoke();
                     //repositionObj.GetComponent<ProductModelElement>().OnMoveEnd();
                     repositionObj = null;
@@ -144,17 +147,13 @@ public class CameraPointer : MonoBehaviour
         //if (Google.XR.Cardboard.Api.IsTriggerPressed)
         if (Input.GetMouseButtonUp(0))
         {
-            //else
-            //{
-                _gazedAtObject?.GetComponent<IInteractable>()?.OnPointerClick();
+            _gazedAtObject?.GetComponent<IInteractable>()?.OnPointerClick();
 
-                _gazedAtObject?.GetComponent<Button>()?.onClick.Invoke();
+            _gazedAtObject?.GetComponent<Button>()?.onClick.Invoke();
                 
-                CurvedUI.CurvedUIEventSystem.instance.currentSelectedGameObject?.GetComponent<Button>()?.onClick.Invoke();
-                CurvedUI.CurvedUIEventSystem.instance.SetSelectedGameObject(null , null);
-
-                //Debug.LogError(EventSystem.current.gameObject?.name);
-            //}
+            CurvedUI.CurvedUIEventSystem.instance.currentSelectedGameObject?.GetComponent<Button>()?.onClick.Invoke();
+            CurvedUI.CurvedUIEventSystem.instance.SetSelectedGameObject(null , null);
+            buttonClickAudio.Play();
         }
     }
 
