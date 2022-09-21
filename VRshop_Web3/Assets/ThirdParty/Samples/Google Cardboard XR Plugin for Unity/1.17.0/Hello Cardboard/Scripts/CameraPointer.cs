@@ -45,12 +45,6 @@ public class CameraPointer : MonoBehaviour
 
     private void Awake()
     {
-#if UNITY_EDITOR
-        rot = transform.localRotation.eulerAngles;
-        rotY = rot.y;
-        rotX = rot.x;
-
-#endif
         if (Instance != null && Instance != this)
         {
             Destroy(this);
@@ -70,33 +64,11 @@ public class CameraPointer : MonoBehaviour
     {
         Data.DataEvents.OnProductRepositionStart -= StartRepositioningBehaviour;
     }
-#if UNITY_EDITOR
-    float rotY = 0;
-    float rotX = 0;
-    float mouseY = 0;
-    float mouseX = 0;
-
-    Vector3 rot;
-    void FixedUpdate()
-    {
-        mouseX = Input.GetAxis("Mouse X");
-        mouseY = -Input.GetAxis("Mouse Y");
-
-        rotY += mouseX * 300  * Time.deltaTime;
-        rotX += mouseY * 300 * Time.deltaTime;
-
-        rotX = Mathf.Clamp(rotX, -80, 80);
-
-        Quaternion localRotation = Quaternion.Euler(rotX, rotY, 0.0f);
-        transform.rotation = Quaternion.Slerp(transform.rotation ,  localRotation , Time.deltaTime * 20);
-    }
-#endif
-
 
     private void OnGUI()
     {
-        GUILayout.TextField($"Current Selectable = {currentSelectable}");
-        GUILayout.TextField($"Current Raycast hit obj = {_gazedAtObject}");
+        //GUILayout.TextField($"Current Selectable = {currentSelectable}");
+        //GUILayout.TextField($"Current Raycast hit obj = {_gazedAtObject}");
     }
     /// <summary>
     /// Update is called once per frame.
@@ -155,13 +127,9 @@ public class CameraPointer : MonoBehaviour
         }
 
         // Checks for screen touches.
-#if UNITY_EDITOR
 
+        //if (Google.XR.Cardboard.Api.IsTriggerPressed)
         if (Input.GetMouseButtonUp(0))
-#else
-
-        if (Google.XR.Cardboard.Api.IsTriggerPressed)
-#endif
         {
             if (repositionObj)
             {
