@@ -7,7 +7,6 @@ public struct Data
 {
     #region Moralis
     public static string userWalletAddress = "Guest";
-
     //URL to JSON located in Cloud
     public static string productsDataURL = "https://kings-guardians.com/KingsGaurdiansAndroidAssets/test/products.json";
     #endregion

@@ -104,7 +104,7 @@ MonoBehaviour:
   savedUp: {x: 0, y: 1, z: -1.3474435e-10}
   savedRectSize: {x: 843.2, y: 354.1}
   savedColor: {r: 0.16981131, g: 0.16981131, b: 0.16981131, a: 1}
-  savedTextUV0: {x: 0.8984375, y: 0.095703125, z: 0, w: 0}
+  savedTextUV0: {x: 0.6152344, y: 0, z: 0, w: 0}
   savedFill: 0
 --- !u!1 &351617268
 GameObject:
@@ -529,7 +529,7 @@ MonoBehaviour:
     m_FontStyle: 1
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 50
+    m_MaxSize: 35
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 0
@@ -554,7 +554,7 @@ MonoBehaviour:
   savedUp: {x: 0, y: 1, z: -1.3474435e-10}
   savedRectSize: {x: 843.86, y: 95.9}
   savedColor: {r: 0, g: 0.65151525, b: 1, a: 1}
-  savedTextUV0: {x: 0.23828125, y: 0.7714844, z: 0, w: 0}
+  savedTextUV0: {x: 0.1328125, y: 0.62109375, z: 0, w: 0}
   savedFill: 0
 --- !u!1 &1441429375
 GameObject:
@@ -901,7 +901,7 @@ MonoBehaviour:
   savedUp: {x: 0, y: 1, z: -1.3474435e-10}
   savedRectSize: {x: 148.6, y: 71.4}
   savedColor: {r: 0.007843138, g: 0.654902, b: 0.9960785, a: 1}
-  savedTextUV0: {x: 0.2578125, y: 0.5, z: 0, w: 0}
+  savedTextUV0: {x: 0.31835938, y: 0.5390625, z: 0, w: 0}
   savedFill: 0
 --- !u!1 &96076985036912835
 GameObject:
@@ -11967,7 +11967,7 @@ MonoBehaviour:
   savedUp: {x: 0, y: 1, z: -1.3474435e-10}
   savedRectSize: {x: 198.58, y: 150}
   savedColor: {r: 0.039215688, g: 0.6627451, b: 0.9960785, a: 1}
-  savedTextUV0: {x: 0.15820312, y: 0.064453125, z: 0, w: 0}
+  savedTextUV0: {x: 0.068359375, y: 0.73828125, z: 0, w: 0}
   savedFill: 0
 --- !u!1 &8384336725428357376
 GameObject:
@@ -12690,7 +12690,7 @@ MonoBehaviour:
   savedUp: {x: 0, y: 1, z: -1.3474435e-10}
   savedRectSize: {x: 1954.3, y: 150}
   savedColor: {r: 0, g: 0.6509804, b: 1, a: 1}
-  savedTextUV0: {x: 0.26757812, y: 0.18359375, z: 0, w: 0}
+  savedTextUV0: {x: 0.72265625, y: 0.3359375, z: 0, w: 0}
   savedFill: 0
 --- !u!1 &8833545453012228528
 GameObject:
@@ -12873,7 +12873,7 @@ MonoBehaviour:
   savedUp: {x: 0, y: 1, z: 0}
   savedRectSize: {x: 170.7, y: 71.7}
   savedColor: {r: 0, g: 0.6509804, b: 1, a: 1}
-  savedTextUV0: {x: 0.27148438, y: 0.6035156, z: 0, w: 0}
+  savedTextUV0: {x: 0.0703125, y: 0.6933594, z: 0, w: 0}
   savedFill: 0
 --- !u!1 &8854235622907931166
 GameObject:
@@ -13298,6 +13298,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6806098367269245264}
     m_Modifications:
+    - target: {fileID: 8911808910443584431, guid: ef7f6c6f4a34737439b8aea510e257ec, type: 3}
+      propertyPath: savedPos.x
+      value: -846.2001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8911808910443584431, guid: ef7f6c6f4a34737439b8aea510e257ec, type: 3}
+      propertyPath: savedPos.y
+      value: -298.99557
+      objectReference: {fileID: 0}
+    - target: {fileID: 8911808910443584431, guid: ef7f6c6f4a34737439b8aea510e257ec, type: 3}
+      propertyPath: savedPos.z
+      value: 9.799952
+      objectReference: {fileID: 0}
+    - target: {fileID: 8911808910443584431, guid: ef7f6c6f4a34737439b8aea510e257ec, type: 3}
+      propertyPath: savedRectSize.x
+      value: 252.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8911808910443584431, guid: ef7f6c6f4a34737439b8aea510e257ec, type: 3}
+      propertyPath: savedRectSize.y
+      value: 278.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 8911808910443584432, guid: ef7f6c6f4a34737439b8aea510e257ec, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 278.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 8911808910443584432, guid: ef7f6c6f4a34737439b8aea510e257ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8911808910443584432, guid: ef7f6c6f4a34737439b8aea510e257ec, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -32.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 8911808910443584433, guid: ef7f6c6f4a34737439b8aea510e257ec, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8911808911095624581, guid: ef7f6c6f4a34737439b8aea510e257ec, type: 3}
       propertyPath: savedPos.x
       value: -850
@@ -13312,11 +13348,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8911808911095624581, guid: ef7f6c6f4a34737439b8aea510e257ec, type: 3}
       propertyPath: savedTextUV0.x
-      value: 0.26953125
+      value: 0.1171875
       objectReference: {fileID: 0}
     - target: {fileID: 8911808911095624581, guid: ef7f6c6f4a34737439b8aea510e257ec, type: 3}
       propertyPath: savedTextUV0.y
-      value: 0.29101562
+      value: 0.80078125
       objectReference: {fileID: 0}
     - target: {fileID: 8911808911095624581, guid: ef7f6c6f4a34737439b8aea510e257ec, type: 3}
       propertyPath: savedRectSize.x
