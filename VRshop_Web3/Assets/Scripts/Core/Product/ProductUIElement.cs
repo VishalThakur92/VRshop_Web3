@@ -44,16 +44,6 @@ public class ProductUIElement : MonoBehaviour
     }
 
 
-    //Download and show this product's AssetBundle
-    async Task LoadAssetBundleAsync(string url)
-    {
-        //Download AB and show it in the scene
-        AssetBundle remoteAB = await Utility.DownloadAssetBundle(productInfo.assetBundleURL);
-        GameObject spawnedABObj = Instantiate(remoteAB.LoadAsset(productInfo.name)) as GameObject;
-        spawnedABObj.transform.position = new Vector3(0, 0.1f, 2.19f);
-        remoteAB.Unload(false);
-    }
-
 
 
     //Download Asset Bundle from Cloud
@@ -67,11 +57,9 @@ public class ProductUIElement : MonoBehaviour
         throw new NotImplementedException();
     }
 
-    public void OnSelected() { 
-        //Show this product's info on the panel
-    }
-
-    public void OnPurchased() {
-        _ = LoadAssetBundleAsync(productInfo.assetBundleURL);
+    public void OnSelected() {
+        ShopManager.Instance.OnProductSelected(productInfo);
+        //Notify ShopManager, which will show detailed info about this product
+        //_ = LoadAssetBundleAsync(productInfo.assetBundleURL);
     }
 }

@@ -8,9 +8,9 @@ using UnityEngine.UI;
 public class AppManager : MonoBehaviour
 {
 
+    #region Parameters
     [SerializeField]
     string state;
-    #region Parameters
     //Singleton instance
     public static AppManager Instance { get; private set; }
 
@@ -39,11 +39,6 @@ public class AppManager : MonoBehaviour
     [SerializeField]
     Text UserIDText;
     #endregion
-    public void OnStateChange(AuthenticationKitState val) {
-        state = val.ToString();
-
-    }
-
     #region Core
     private void Awake()
     {
@@ -70,6 +65,12 @@ public class AppManager : MonoBehaviour
 
         //Hide Loading UI and show products over the UI
         StartCoroutine(ShowProductsOverUI());
+
+    }
+
+    public void OnStateChange(AuthenticationKitState val)
+    {
+        state = val.ToString();
 
     }
 

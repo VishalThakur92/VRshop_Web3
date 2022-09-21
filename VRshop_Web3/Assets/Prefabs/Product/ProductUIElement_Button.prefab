@@ -320,8 +320,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8102595758924591187}
-        m_TargetAssemblyTypeName: ProductUIElement, Assembly-CSharp
-        m_MethodName: OnPurchased
+        m_TargetAssemblyTypeName: ProductUIElement, Core
+        m_MethodName: OnSelected
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

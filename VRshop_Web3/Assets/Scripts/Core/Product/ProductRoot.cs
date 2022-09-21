@@ -28,6 +28,7 @@ public struct Product
     public string description;
     public string iconImageURL;
     public string assetBundleURL;
+    public int price;
 }
 
 
