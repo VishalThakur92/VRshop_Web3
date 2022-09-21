@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 4197601226
+CRC: 1612903768
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: be7c445f70f8994f996fed828e357df5
+    Hash: 5a852b9cb7925e820b1ed3e50273f2d8
   TypeTreeHash:
     serializedVersion: 2
     Hash: f86d889d99e086ffe9090fe4e6769425
@@ -76,5 +76,4 @@ SerializeReferenceClassIdentifiers:
   ClassName: UnityEngine.UI.SpriteState
 Assets:
 - Assets/BundledAssets/table.prefab
-Dependencies:
-- E:/Work/VRshop_Web3/VRshop_Web3/Assets/StreamingAssets/chair
+Dependencies: []

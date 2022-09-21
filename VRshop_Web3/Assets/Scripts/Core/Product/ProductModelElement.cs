@@ -51,6 +51,10 @@ public class ProductModelElement : MonoBehaviour, IInteractable
         UICanvas.SetActive(flag);
     }
 
+    public void OnCloseInteractionMenu() {
+        ToggleUICanvas(false);
+        GetComponent<BoxCollider>().enabled = true;
+    }
 
     //int value = 0;
     public void OnMoveStart()
