@@ -26,6 +26,9 @@ public class ShopManager : MonoBehaviour,IInteractable
     Text productNameText, productDescriptionText, productPriceText;
 
     [SerializeField]
+    Button PurchaseButton;
+
+    [SerializeField]
     Image productImage;
     #endregion
 
@@ -71,7 +74,7 @@ public class ShopManager : MonoBehaviour,IInteractable
     public void OnProductSelected(Product selectedProduct) {
 
         //do nothing if same product is selected
-        if (currentProductInfo.uniqueId == selectedProduct.uniqueId)
+        if (currentProductInfo?.uniqueId == selectedProduct.uniqueId)
             return;
 
         //A new product is selected save it's info 
@@ -80,13 +83,30 @@ public class ShopManager : MonoBehaviour,IInteractable
         //show its info
         _ = LoadIconAsync(currentProductInfo.iconImageURL);
 
-        productNameText.text = currentProductInfo.name;
+
+        //Show product as purchased
+        if (currentProductInfo.isPurchased)
+        {
+            productNameText.text = currentProductInfo.name + " (Purchased)";
+            productPriceText.text = string.Empty;
+        }
+        //show buying info
+        else {
+            productNameText.text = currentProductInfo.name;
+            productPriceText.text = "$" + currentProductInfo.price;
+        }
+
+        PurchaseButton.gameObject.SetActive(!currentProductInfo.isPurchased);
         productDescriptionText.text= currentProductInfo.description;
-        productPriceText.text = "$" + currentProductInfo.price;
     }
 
 
-    public void OnProductPurchased() {
+    public void OnProductPurchased()
+    {
+        currentProductInfo.isPurchased = true;
+        productNameText.text = currentProductInfo.name + " (Downloading..)";
+        productPriceText.text = string.Empty;
+        PurchaseButton.gameObject.SetActive(!currentProductInfo.isPurchased);
         _ = LoadAssetBundleAsync(currentProductInfo.assetBundleURL);
     }
 
@@ -99,6 +119,8 @@ public class ShopManager : MonoBehaviour,IInteractable
         GameObject spawnedABObj = Instantiate(remoteAB.LoadAsset(currentProductInfo.name)) as GameObject;
         spawnedABObj.transform.position = new Vector3(0, 0.1f, 2.19f);
         remoteAB.Unload(false);
+        _ = LoadAssetBundleAsync(currentProductInfo.assetBundleURL);
+        productNameText.text = currentProductInfo.name + " (Purchased)";
     }
 
     //Download and show this product's Icon Image

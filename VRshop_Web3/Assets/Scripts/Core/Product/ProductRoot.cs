@@ -21,7 +21,7 @@ public class ProductRoot
 }
 
 [System.Serializable]
-public struct Product
+public class Product
 {
     public string uniqueId;
     public string name;
@@ -29,6 +29,7 @@ public struct Product
     public string iconImageURL;
     public string assetBundleURL;
     public int price;
+    public bool isPurchased;
 }
 
 
