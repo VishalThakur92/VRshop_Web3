@@ -2138,6 +2138,10 @@ PrefabInstance:
       value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1721056429, guid: ec3e8f3ed27e2244caaedaf589590a03, type: 3}
+      propertyPath: origin
+      value: 
+      objectReference: {fileID: 1536823794}
+    - target: {fileID: 1721056429, guid: ec3e8f3ed27e2244caaedaf589590a03, type: 3}
       propertyPath: startForce.x
       value: 0
       objectReference: {fileID: 0}
@@ -2149,6 +2153,10 @@ PrefabInstance:
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 1536823794}
+    - target: {fileID: 1721056429, guid: ec3e8f3ed27e2244caaedaf589590a03, type: 3}
+      propertyPath: initialVelocity.z
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1721056429, guid: ec3e8f3ed27e2244caaedaf589590a03, type: 3}
       propertyPath: returnsAfterSeconds
       value: 7

@@ -32,5 +32,6 @@ namespace VRshop_Web3
         public string assetBundleURL;
         public int price;
         public bool isPurchased;
+        public string category;
     }
 }

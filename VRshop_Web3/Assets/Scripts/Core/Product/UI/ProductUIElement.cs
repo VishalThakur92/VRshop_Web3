@@ -22,7 +22,7 @@ namespace VRshop_Web3
         [SerializeField]
         string assetBundleURL;
 
-        Product productInfo;
+        public Product productInfo;
 
 
         public void Initialize(Product product)

@@ -23,6 +23,7 @@ namespace VRshop_Web3
             public static UnityAction OnProductPurchased;
             public static UnityAction<GameObject> OnProductPlaySpecialStart;
             public static UnityAction OnProductPlaySpecialEnd;
+            public static UnityAction<string> OnProductFilterSelected;
         }
         #endregion
     }

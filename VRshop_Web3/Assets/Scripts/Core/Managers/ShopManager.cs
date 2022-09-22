@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -23,7 +24,7 @@ namespace VRshop_Web3
 
 
         [SerializeField]
-        Text productNameText, productDescriptionText, productPriceText;
+        Text productNameText, productDescriptionText, productPriceText, currentFilterText;
 
         [SerializeField]
         Button PurchaseButton;
@@ -36,6 +37,9 @@ namespace VRshop_Web3
         [SerializeField]
         ProductRoot productsData;
 
+        [SerializeField]
+        string currentFilter;
+
 
         //----Related to Product UI--------------
         //Container holding all product UI elements
@@ -47,6 +51,10 @@ namespace VRshop_Web3
         ProductUIElement productUIPrefab;
 
         bool productsLoadedSuccessfully = false;
+        
+        //All Product UI elements in shop
+        List<ProductUIElement> allProducts = new List<ProductUIElement>();
+
         #endregion
 
         #region Core
@@ -66,6 +74,10 @@ namespace VRshop_Web3
 
             Data.Events.OnProductPlaySpecialStart += OnProductMoveStart;
             Data.Events.OnProductPlaySpecialEnd += OnProductMoveEnd;
+
+            Data.Events.OnProductFilterSelected += OnProductFilterSelected;
+
+
         }
 
 
@@ -78,6 +90,12 @@ namespace VRshop_Web3
         {
             Data.Events.OnProductRepositionStart -= OnProductMoveStart;
             Data.Events.OnProductRepositionEnd -= OnProductMoveEnd;
+
+            Data.Events.OnProductPlaySpecialStart -= OnProductMoveStart;
+            Data.Events.OnProductPlaySpecialEnd -= OnProductMoveEnd;
+
+            Data.Events.OnProductFilterSelected -= OnProductFilterSelected;
+
         }
 
 
@@ -111,8 +129,6 @@ namespace VRshop_Web3
             }
         }
 
-
-
         IEnumerator ShowProductsOverUI()
         {
             int nbChildren = productsUIContainer.transform.childCount;
@@ -123,16 +139,43 @@ namespace VRshop_Web3
                 DestroyImmediate(productsUIContainer.transform.GetChild(i).gameObject);
             }
 
+            allProducts.Clear();
 
             for (int i = 0; i < productsData.products.Length; i++)
             {
                 ProductUIElement newProductUIElement = Instantiate(productUIPrefab, productsUIContainer.transform);
                 newProductUIElement.Initialize(productsData.products[i]);
+                allProducts.Add(newProductUIElement);
                 yield return null;
             }
         }
 
 
+        public void OnProductFilterSelected(string category)
+        {
+            //avoid selection of same filter
+            if (currentFilter == category)
+                return;
+
+            currentFilter = category;
+            currentFilterText.text = category;
+            ProductUIElement firstProductOfNewCategory = null;
+
+            for (int i = 0; i < allProducts.Count; i++) {
+                //If this product belongs to the selected category, show it
+                if (string.Equals(allProducts[i].productInfo.category, category))
+                {
+                    allProducts[i].gameObject.SetActive(true);
+                    if (firstProductOfNewCategory == null)
+                        firstProductOfNewCategory = allProducts[i];
+                }
+                else//If this product does not belongs to the selected category, hide it
+                    allProducts[i].gameObject.SetActive(false);
+            }
+
+            //Show the newly selected category Product
+            firstProductOfNewCategory.OnSelected();
+        }
         public void OnPointerEnter()
         {
             //hover start behaviour
