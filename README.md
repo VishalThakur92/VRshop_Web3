@@ -179,7 +179,7 @@ You can easily add a new downloadable product. Changes are required both on the 
 
 
 # **WEB3 and Metaverse**
-The application has been injected with **Moralis** (https://moralis.io/) SDK with is a full blown WEB3 plugin, The application right now is just logging in user via wallet connect. It can be further expanded so that the app can have all the Metaverse bells and whistles.
+The application has been injected with **Moralis** (https://moralis.io/) SDK witch is an awesome WEB3 plugin, The application right now is just logging in user via wallet connect. It can be further expanded so that the app can have all the Metaverse bells and whistles.
 
 
 
