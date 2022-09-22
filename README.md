@@ -11,6 +11,7 @@
 - [**Product Interactions**](#product-interactions)
 - [**Edit Existing Products**](#edit-existing-products)
 - [**Add new Products**](#add-new-products)
+- [**WEB3 and Metaverse**](#web3-and-metaverse)
 
 
 # Project Hierarchy
@@ -77,7 +78,7 @@ On top menu select **`Assets/Build AssetBundles`** and they will be exported in 
 
 You can login via the following methods -
 1. **Guest Login**- You don't need to connect via wallet? No worries, you can just explore the app as a guest
-1. **Wallet Connect** - Click Wallet Login, and the app shall show you a QR code, which you need to scan with your wallet app's scanner. Upon successful authentication you will be loaded intothe [`Main`] scene, and at the bottom left corner you can see the logged in wallet ID as shown below - 
+1. **Wallet Connect** - Click Wallet Login, and the app shall show you a QR code, which you need to scan with your wallet app's scanner. Upon successful authentication you will be loaded intothe `Main` scene, and at the bottom left corner you can see the logged in wallet ID as shown below - 
 
 ![walletID](https://user-images.githubusercontent.com/16806053/191709095-7daaae8f-ec2c-4215-8b60-d4f330b63188.PNG)
 
@@ -177,6 +178,8 @@ You can easily add a new downloadable product. Changes are required both on the 
 
 
 
+# **WEB3 and Metaverse**
+The application has been injected with **Moralis** (https://moralis.io/) SDK with is a full blown WEB3 plugin, The application right now is just logging in user via wallet connect. It can be further expanded so that the app can have all the Metaverse bells and whistles.
 
 
 
