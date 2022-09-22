@@ -5,9 +5,7 @@ namespace VRshop_Web3
 {
     public class BouncingBall : MonoBehaviour
     {
-        public Vector3 startForce;
-
-
+        #region Parameters
         [SerializeField]
         [Range(0f, 1f)]
         [Tooltip("0 = regular bounce ignoring player | 1 = direct to the player")]
@@ -17,28 +15,38 @@ namespace VRshop_Web3
         [Tooltip("Just for debugging, adds some velocity during OnEnable")]
         private Vector3 initialVelocity;
 
+
+        //Table for this instance, Ball will return to this object after playing around
         [SerializeField]
-        private Transform playerTransform;
+        private Transform origin;
 
         [SerializeField]
         private float bounceVelocity = 10f;
 
         private Vector3 lastFrameVelocity;
         private Rigidbody rb;
+
+        //ball will return after this many seconds
         [SerializeField]
         int returnsAfterSeconds = 5;
+
+        //If TRUE - Signals ball to return to origin 
         bool finishBouncing = false;
+        #endregion
 
 
+        #region Core
         void Start()
         {
+            //grab rigidbody ref
             rb = GetComponent<Rigidbody>();
         }
 
 
         public void StartBouncingRandomly()
         {
-            playerTransform.GetComponent<BoxCollider>().enabled = false;
+            //disable 
+            origin.GetComponent<BoxCollider>().enabled = false;
             rb.isKinematic = false;
             float randomX = Random.Range(-3, 3);
             float randomY = Random.Range(3, 6);
@@ -51,7 +59,7 @@ namespace VRshop_Web3
         {
             yield return new WaitForSeconds(returnsAfterSeconds);
             finishBouncing = true;
-            playerTransform.GetComponent<BoxCollider>().enabled = true;
+            origin.GetComponent<BoxCollider>().enabled = true;
         }
 
         private void OnEnable()
@@ -88,19 +96,20 @@ namespace VRshop_Web3
             rb.isKinematic = true;
             transform.localPosition = new Vector3(0, 0.4f, 0);
             finishBouncing = false;
-            Data.DataEvents.OnProductPlaySpecialEnd.Invoke();
+            Data.Events.OnProductPlaySpecialEnd.Invoke();
         }
 
         private void Bounce(Vector3 collisionNormal)
         {
             var speed = lastFrameVelocity.magnitude;
             var bounceDirection = Vector3.Reflect(lastFrameVelocity.normalized, collisionNormal);
-            var directionToPlayer = playerTransform.position - transform.position;
+            var directionToPlayer = origin.position - transform.position;
 
             var direction = Vector3.Lerp(bounceDirection, directionToPlayer, bias);
 
             Debug.Log("Out Direction: " + direction);
             rb.velocity = direction * bounceVelocity;
         }
+        #endregion
     }
 }

@@ -61,11 +61,11 @@ namespace VRshop_Web3
             }
             Instance = this;
 
-            Data.DataEvents.OnProductRepositionStart += OnProductMoveStart;
-            Data.DataEvents.OnProductRepositionEnd += OnProductMoveEnd;
+            Data.Events.OnProductRepositionStart += OnProductMoveStart;
+            Data.Events.OnProductRepositionEnd += OnProductMoveEnd;
 
-            Data.DataEvents.OnProductPlaySpecialStart += OnProductMoveStart;
-            Data.DataEvents.OnProductPlaySpecialEnd += OnProductMoveEnd;
+            Data.Events.OnProductPlaySpecialStart += OnProductMoveStart;
+            Data.Events.OnProductPlaySpecialEnd += OnProductMoveEnd;
         }
 
 
@@ -76,8 +76,8 @@ namespace VRshop_Web3
 
         void OnDestroy()
         {
-            Data.DataEvents.OnProductRepositionStart -= OnProductMoveStart;
-            Data.DataEvents.OnProductRepositionEnd -= OnProductMoveEnd;
+            Data.Events.OnProductRepositionStart -= OnProductMoveStart;
+            Data.Events.OnProductRepositionEnd -= OnProductMoveEnd;
         }
 
 
@@ -219,7 +219,7 @@ namespace VRshop_Web3
 
             await Task.Delay(500);
             OnShopExit();
-            Data.DataEvents.OnProductPurchased.Invoke();
+            Data.Events.OnProductPurchased.Invoke();
         }
 
         //Download and show this product's Icon Image

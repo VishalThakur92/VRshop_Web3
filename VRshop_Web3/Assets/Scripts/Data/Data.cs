@@ -7,16 +7,17 @@ namespace VRshop_Web3
     public struct Data
     {
         #region Moralis
+        //Logged in User's wallet ID
         public static string userWalletAddress = "Guest";
-        //URL to JSON located in Cloud
+
+        //Products info JSON Cloud URL
         public static string productsDataURL = "https://kings-guardians.com/KingsGaurdiansAndroidAssets/test/products.json";
         #endregion
 
 
-        #region Product Interaction Events
-        public struct DataEvents
+        #region Events
+        public struct Events
         {
-
             public static UnityAction<GameObject> OnProductRepositionStart;
             public static UnityAction OnProductRepositionEnd;
             public static UnityAction OnProductPurchased;

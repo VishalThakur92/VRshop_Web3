@@ -1,18 +1,15 @@
-using MoralisUnity.Kits.AuthenticationKit;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace VRshop_Web3
 {
-    public class AppManager : MonoBehaviour
-    {
+    public class AppManager : MonoBehaviour{
 
         #region Parameters
-        [SerializeField]
-        string state;
         //Singleton instance
         public static AppManager Instance { get; private set; }
 
+        //Moralis Wallet ID of logged in User
         [SerializeField]
         Text UserIDText;
         #endregion
@@ -31,20 +28,12 @@ namespace VRshop_Web3
             }
             Instance = this;
         }
-        // Start is called before the first frame update
+
         void Start()
         {
             //Show user ID/wallet address
             UserIDText.text = Data.userWalletAddress;
         }
-
-        public void OnStateChange(AuthenticationKitState val)
-        {
-            state = val.ToString();
-
-        }
         #endregion
-
-
     }
 }

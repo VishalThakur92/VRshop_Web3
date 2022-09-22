@@ -59,13 +59,13 @@ using VRshop_Web3;
         {
             layer_mask = LayerMask.GetMask("Interactable", "UI", "Floor");
 
-            Data.DataEvents.OnProductRepositionStart += StartRepositioningBehaviour;
+            Data.Events.OnProductRepositionStart += StartRepositioningBehaviour;
 
         }
 
         private void OnDestroy()
         {
-            Data.DataEvents.OnProductRepositionStart -= StartRepositioningBehaviour;
+            Data.Events.OnProductRepositionStart -= StartRepositioningBehaviour;
         }
 
         private void OnGUI()
@@ -92,7 +92,7 @@ using VRshop_Web3;
                     if (Input.GetMouseButtonUp(0))
                     {
                         buttonClickAudio.Play();
-                        Data.DataEvents.OnProductRepositionEnd.Invoke();
+                        Data.Events.OnProductRepositionEnd.Invoke();
                         //repositionObj.GetComponent<ProductModelElement>().OnMoveEnd();
                         repositionObj = null;
                     }

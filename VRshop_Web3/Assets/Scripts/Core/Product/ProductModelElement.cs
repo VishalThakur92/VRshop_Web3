@@ -30,7 +30,7 @@ namespace VRshop_Web3
         void Start()
         {
             ToggleUICanvas(false);
-            Data.DataEvents.OnProductPurchased += OnMoveStart;
+            Data.Events.OnProductPurchased += OnMoveStart;
             //productNameText.text = value.ToString();
         }
 
@@ -74,8 +74,8 @@ namespace VRshop_Web3
             //Debug.LogError("Product Move start");
             GetComponent<BoxCollider>().enabled = false;
             ToggleUICanvas(false);
-            Data.DataEvents.OnProductRepositionStart.Invoke(gameObject);
-            Data.DataEvents.OnProductRepositionEnd += OnMoveEnd;
+            Data.Events.OnProductRepositionStart.Invoke(gameObject);
+            Data.Events.OnProductRepositionEnd += OnMoveEnd;
             isPlaced = false;
         }
 
@@ -84,8 +84,8 @@ namespace VRshop_Web3
             //Debug.LogError("Product Move end");
             GetComponent<BoxCollider>().enabled = true;
             transform.parent = null;
-            Data.DataEvents.OnProductRepositionEnd -= OnMoveEnd;
-            Data.DataEvents.OnProductPurchased -= OnMoveStart;
+            Data.Events.OnProductRepositionEnd -= OnMoveEnd;
+            Data.Events.OnProductPurchased -= OnMoveStart;
             isPlaced = true;
         }
 
@@ -107,15 +107,15 @@ namespace VRshop_Web3
             ToggleUICanvas(false);
             GetComponent<BoxCollider>().enabled = false;
             OnPlayBehaviour.Invoke();
-            Data.DataEvents.OnProductPlaySpecialStart.Invoke(gameObject);
-            Data.DataEvents.OnProductPlaySpecialEnd += OnPlaySpecialEnd;
+            Data.Events.OnProductPlaySpecialStart.Invoke(gameObject);
+            Data.Events.OnProductPlaySpecialEnd += OnPlaySpecialEnd;
         }
 
 
         public void OnPlaySpecialEnd()
         {
             GetComponent<BoxCollider>().enabled = true;
-            Data.DataEvents.OnProductPlaySpecialEnd -= OnPlaySpecialEnd;
+            Data.Events.OnProductPlaySpecialEnd -= OnPlaySpecialEnd;
         }
 
         public void IncreaseSize()
