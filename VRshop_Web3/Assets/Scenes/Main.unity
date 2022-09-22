@@ -700,6 +700,7 @@ MonoBehaviour:
   productImage: {fileID: 2135528149}
   productsData:
     products: []
+  currentFilter: 
   productsUIContainer: {fileID: 1021827291}
   productUIPrefab: {fileID: 8102595758924591187, guid: ef7f6c6f4a34737439b8aea510e257ec, type: 3}
 --- !u!65 &672356578

@@ -79,14 +79,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: The products you see at the bottom of this panel are fetched from the cloud.
-    On the right, you can see the filters, which you can use to filter out products
-    based on their categories. you can select them to see detailed information about
-    them. You also you can purchase them with the Buy button above. When a product
-    is purchased, it will be directly downloaded into this 3D space, you can then
-    place it in the desired location. Moreover, you can also manipulate the product
-    in different ways such as resizing, rotating and special interactions. Good luck
-    exploring!
+  m_Text: The products you see below are fetched from the cloud. On the right, you
+    can see filters, which can be used to filter out products based on their categories.
+    Click on a product to see it's detailed information. Once selected you can also
+    purchase them with the Buy button. When a product is purchased, it will be directly
+    downloaded into this 3D space, you can then place it in the desired location.
+    Moreover, you can also manipulate the product in different ways such as resizing,
+    rotating and special interactions. Good luck exploring!
 --- !u!114 &201248067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,7 +103,7 @@ MonoBehaviour:
   savedUp: {x: 0, y: 1, z: -1.3474435e-10}
   savedRectSize: {x: 843.2, y: 354.1}
   savedColor: {r: 0.16981131, g: 0.16981131, b: 0.16981131, a: 1}
-  savedTextUV0: {x: 0.8457031, y: 0.08203125, z: 0, w: 0}
+  savedTextUV0: {x: 0.5, y: 0.1640625, z: 0, w: 0}
   savedFill: 0
 --- !u!1 &351617268
 GameObject:
@@ -554,7 +553,7 @@ MonoBehaviour:
   savedUp: {x: 0, y: 1, z: -1.3474435e-10}
   savedRectSize: {x: 843.86, y: 95.9}
   savedColor: {r: 0, g: 0.65151525, b: 1, a: 1}
-  savedTextUV0: {x: 0.9707031, y: 0.30273438, z: 0, w: 0}
+  savedTextUV0: {x: 0.6484375, y: 0.3984375, z: 0, w: 0}
   savedFill: 0
 --- !u!1 &1002846958
 GameObject:
@@ -820,7 +819,7 @@ MonoBehaviour:
   savedUp: {x: 0, y: 1, z: -1.3474435e-10}
   savedRectSize: {x: 145.1, y: 55}
   savedColor: {r: 0.023529414, g: 0.65882355, b: 0.9960785, a: 1}
-  savedTextUV0: {x: 0.9707031, y: 0.23632812, z: 0, w: 0}
+  savedTextUV0: {x: 0.6699219, y: 0.29492188, z: 0, w: 0}
   savedFill: 0
 --- !u!1 &1441429375
 GameObject:
@@ -1181,7 +1180,7 @@ MonoBehaviour:
   savedUp: {x: 0, y: 1, z: -1.3474435e-10}
   savedRectSize: {x: 98.6, y: 55}
   savedColor: {r: 0.023529414, g: 0.65882355, b: 0.9960785, a: 1}
-  savedTextUV0: {x: 0.9316406, y: 0.41992188, z: 0, w: 0}
+  savedTextUV0: {x: 0.9121094, y: 0.14257812, z: 0, w: 0}
   savedFill: 0
 --- !u!1 &1913358857
 GameObject:
@@ -1433,7 +1432,7 @@ MonoBehaviour:
   savedUp: {x: 0, y: 1, z: -1.3474435e-10}
   savedRectSize: {x: 148.6, y: 71.4}
   savedColor: {r: 0.007843138, g: 0.654902, b: 0.9960785, a: 1}
-  savedTextUV0: {x: 0.021484375, y: 0.5761719, z: 0, w: 0}
+  savedTextUV0: {x: 0.8261719, y: 0.20507812, z: 0, w: 0}
   savedFill: 0
 --- !u!1 &96076985036912835
 GameObject:
@@ -12501,7 +12500,7 @@ MonoBehaviour:
   savedUp: {x: 0, y: 1, z: -1.3474435e-10}
   savedRectSize: {x: 198.58, y: 150}
   savedColor: {r: 0.039215688, g: 0.6627451, b: 0.9960785, a: 1}
-  savedTextUV0: {x: 0.20507812, y: 0.5878906, z: 0, w: 0}
+  savedTextUV0: {x: 0.9628906, y: 0.25195312, z: 0, w: 0}
   savedFill: 0
 --- !u!1 &8384336725428357376
 GameObject:
@@ -13224,7 +13223,7 @@ MonoBehaviour:
   savedUp: {x: 0, y: 1, z: -1.3474435e-10}
   savedRectSize: {x: 1954.3, y: 150}
   savedColor: {r: 0, g: 0.6509804, b: 1, a: 1}
-  savedTextUV0: {x: 0.6308594, y: 0.7089844, z: 0, w: 0}
+  savedTextUV0: {x: 0.296875, y: 0.87890625, z: 0, w: 0}
   savedFill: 0
 --- !u!1 &8833545453012228528
 GameObject:
@@ -13407,7 +13406,7 @@ MonoBehaviour:
   savedUp: {x: 0, y: 1, z: 0}
   savedRectSize: {x: 170.7, y: 71.7}
   savedColor: {r: 0, g: 0.6509804, b: 1, a: 1}
-  savedTextUV0: {x: 0.033203125, y: 0.7285156, z: 0, w: 0}
+  savedTextUV0: {x: 0.83203125, y: 0.32421875, z: 0, w: 0}
   savedFill: 0
 --- !u!1 &8854235622907931166
 GameObject:

@@ -5,11 +5,9 @@ namespace VRshop_Web3
 {
     public class SoundManager : MonoBehaviour
     {
-
-
-        private void Awake()
+        void Awake()
         {
-            DontDestroyOnLoad(this);
+            DontDestroyOnLoad(this.gameObject);
         }
 
     }

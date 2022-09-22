@@ -19,8 +19,8 @@ namespace VRshop_Web3
         void Awake()
         {
 
-            Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Confined;
             if (Instance != null && Instance != this)
             {
                 Destroy(this);
