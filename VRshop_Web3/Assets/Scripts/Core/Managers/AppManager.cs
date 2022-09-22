@@ -2,46 +2,49 @@ using MoralisUnity.Kits.AuthenticationKit;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AppManager : MonoBehaviour
+namespace VRshop_Web3
 {
-
-    #region Parameters
-    [SerializeField]
-    string state;
-    //Singleton instance
-    public static AppManager Instance { get; private set; }
-
-    [SerializeField]
-    Text UserIDText;
-    #endregion
-
-
-    #region Core
-    void Awake()
+    public class AppManager : MonoBehaviour
     {
 
-        Cursor.lockState = CursorLockMode.Confined;
-        Cursor.visible = false;
-        if (Instance != null && Instance != this)
+        #region Parameters
+        [SerializeField]
+        string state;
+        //Singleton instance
+        public static AppManager Instance { get; private set; }
+
+        [SerializeField]
+        Text UserIDText;
+        #endregion
+
+
+        #region Core
+        void Awake()
         {
-            Destroy(this);
-            return;
+
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = false;
+            if (Instance != null && Instance != this)
+            {
+                Destroy(this);
+                return;
+            }
+            Instance = this;
         }
-        Instance = this;
+        // Start is called before the first frame update
+        void Start()
+        {
+            //Show user ID/wallet address
+            UserIDText.text = Data.userWalletAddress;
+        }
+
+        public void OnStateChange(AuthenticationKitState val)
+        {
+            state = val.ToString();
+
+        }
+        #endregion
+
+
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        //Show user ID/wallet address
-        UserIDText.text = Data.userWalletAddress;
-    }
-
-    public void OnStateChange(AuthenticationKitState val)
-    {
-        state = val.ToString();
-
-    }
-    #endregion
-
-
 }

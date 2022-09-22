@@ -1,44 +1,36 @@
 // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
 using System.Collections.Generic;
 using UnityEngine;
-
-[System.Serializable]
-public class ProductRoot
+namespace VRshop_Web3
 {
-    public Product[] products;
-
-    public static ProductRoot CreateFromJSON(string jsonString)
+    [System.Serializable]
+    public class ProductRoot
     {
-        try
+        public Product[] products;
+
+        public static ProductRoot CreateFromJSON(string jsonString)
         {
-            return JsonUtility.FromJson<ProductRoot>(jsonString);
-        }
-        catch (UnityException e) {
-            Debug.LogError("Error parsing JSON " + e);
-            return null;
+            try
+            {
+                return JsonUtility.FromJson<ProductRoot>(jsonString);
+            }
+            catch (UnityException e)
+            {
+                Debug.LogError("Error parsing JSON " + e);
+                return null;
+            }
         }
     }
+
+    [System.Serializable]
+    public class Product
+    {
+        public string uniqueId;
+        public string name;
+        public string description;
+        public string iconImageURL;
+        public string assetBundleURL;
+        public int price;
+        public bool isPurchased;
+    }
 }
-
-[System.Serializable]
-public class Product
-{
-    public string uniqueId;
-    public string name;
-    public string description;
-    public string iconImageURL;
-    public string assetBundleURL;
-    public int price;
-    public bool isPurchased;
-}
-
-
-
-//public class Contact
-//{
-//    public int Id;
-//    public string Name;
-//    //public DateTime BirthDate;
-//    public string Phone;
-//    public Address Address;
-//}

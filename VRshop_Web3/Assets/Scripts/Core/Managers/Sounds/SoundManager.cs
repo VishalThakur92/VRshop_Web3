@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class SoundManager : MonoBehaviour
+namespace VRshop_Web3
 {
-
-
-    private void Awake()
+    public class SoundManager : MonoBehaviour
     {
-        DontDestroyOnLoad(this);
-    }
 
+
+        private void Awake()
+        {
+            DontDestroyOnLoad(this);
+        }
+
+    }
 }
