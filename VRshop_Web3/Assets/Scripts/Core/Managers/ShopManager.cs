@@ -118,7 +118,7 @@ namespace VRshop_Web3
             yield return request.SendWebRequest();
             if (request.error == null)
             {
-                Debug.Log("Successfully loaded products JSON : " + request.downloadHandler.text);
+                Debug.Log("Successfully loaded products JSON : \n\n" + request.downloadHandler.text);
                 productsData = ProductRoot.CreateFromJSON(request.downloadHandler.text);
                 productsLoadedSuccessfully = true;
             }

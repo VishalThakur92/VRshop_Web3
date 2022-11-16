@@ -11,7 +11,9 @@ namespace VRshop_Web3
         public static string userWalletAddress = "Guest";
 
         //Products info JSON Cloud URL
-        public static string productsDataURL = "https://kings-guardians.com/KingsGaurdiansAndroidAssets/test/products.json";
+        //oneDrive - http://dl.dropboxusercontent.com
+        //public static string productsDataURL = "https://kings-guardians.com/KingsGaurdiansAndroidAssets/test/products.json";
+        public static string productsDataURL = "http://dl.dropboxusercontent.com/s/nc9qfycnbgacb7k/products.xml?dl=0";
         #endregion
 
 
