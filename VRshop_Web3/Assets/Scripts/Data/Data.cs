@@ -13,7 +13,9 @@ namespace VRshop_Web3
         //Products info JSON Cloud URL
         //oneDrive - http://dl.dropboxusercontent.com
         //public static string productsDataURL = "https://kings-guardians.com/KingsGaurdiansAndroidAssets/test/products.json";
-        public static string productsDataURL = "http://dl.dropboxusercontent.com/s/nc9qfycnbgacb7k/products.xml?dl=0";
+        public static string productsDataURL = "http://dl.dropboxusercontent.com/s/d1ojas2kj0zbp3f/table?dl=0";
+
+        //https://www.dropbox.com/s/d1ojas2kj0zbp3f/table?dl=0
         #endregion
 
 

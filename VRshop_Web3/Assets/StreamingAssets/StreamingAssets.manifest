@@ -1,13 +1,10 @@
 ManifestFileVersion: 0
-CRC: 2526364761
+CRC: 1280547986
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
-      Name: table
-      Dependencies: {}
-    Info_1:
       Name: chair
       Dependencies: {}
-    Info_2:
-      Name: bouncing_ball
+    Info_1:
+      Name: table
       Dependencies: {}
